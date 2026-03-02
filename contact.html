@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contactez Synitier pour parler de votre projet de formation. Réponse sous 48h. Paris, Lyon, Lille, Marseille, Montpellier.">
+  <meta name="description" content="Contactez Synitier pour parler de votre projet de formation. Réponse sous 24h. Paris, Lyon, Lille, Marseille, Montpellier.">
   <title>Synitier | Contactez-nous — Formation mobilité légère et urbaine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,6 @@
          ========================================== -->
     <section class="hero-inner" aria-label="Page de contact">
       <div class="container">
-        <span class="section-tag white">Nous retrouver ici</span>
         <h1>Nous contacter pour parler de votre projet</h1>
       </div>
     </section>
@@ -41,13 +40,12 @@
           <div>
             <div class="form-intro">
               <h2>Envoyez-nous un message</h2>
-              <p>Dites-nous où vous en êtes. On s'adapte à votre situation.</p>
             </div>
 
             <!-- Bloc rassurant avant le formulaire -->
             <div class="form-reassurance" role="note" aria-label="Information rassurante">
               <span class="form-reassurance-icon" aria-hidden="true">📞</span>
-              <p>Nous vous rappelons sous 48h. Sans engagement.</p>
+              <p>Nous vous rappelons sous 24h.</p>
             </div>
 
             <form id="contact-form" novalidate aria-label="Formulaire de contact Synitier">
@@ -106,26 +104,38 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="ville">Ville ou centre le plus proche <span aria-label="champ obligatoire">*</span></label>
-                  <select id="ville" name="ville" required aria-required="true">
-                    <option value="" disabled selected>Sélectionnez une ville</option>
-                    <option value="paris">Paris</option>
-                    <option value="lyon">Lyon</option>
-                    <option value="lille">Lille</option>
-                    <option value="marseille">Marseille</option>
-                    <option value="montpellier">Montpellier</option>
+                  <label for="situation">Votre situation <span aria-label="champ obligatoire">*</span></label>
+                  <select id="situation" name="situation" required aria-required="true">
+                    <option value="" disabled selected>Sélectionnez votre situation</option>
+                    <option value="salarie">Salarié en activité</option>
+                    <option value="sans-emploi-ft">Sans emploi – inscrit à France Travail</option>
+                    <option value="sans-emploi-non-ft">Sans emploi – non inscrit à France Travail</option>
+                    <option value="etudiant">Étudiant</option>
+                    <option value="retraite">À l'approche de la retraite</option>
                     <option value="autre">Autre</option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="situation">Votre situation <span aria-label="champ obligatoire">*</span></label>
-                  <select id="situation" name="situation" required aria-required="true">
-                    <option value="" disabled selected>Sélectionnez votre situation</option>
-                    <option value="reconversion">En reconversion professionnelle</option>
-                    <option value="retraite">Proche de la retraite</option>
-                    <option value="velo">Déjà dans le milieu du vélo</option>
-                    <option value="autre">Autre situation</option>
+                  <label for="code-postal">Code postal <span aria-label="champ obligatoire">*</span></label>
+                  <input
+                    type="text"
+                    id="code-postal"
+                    name="code_postal"
+                    required
+                    inputmode="numeric"
+                    maxlength="5"
+                    pattern="\d{5}"
+                    placeholder="75015"
+                    autocomplete="postal-code"
+                    aria-required="true"
+                  >
+                </div>
+
+                <div class="form-group" id="ville-group" style="display:none;">
+                  <label for="ville-auto">Ville</label>
+                  <select id="ville-auto" name="ville">
+                    <option value="" disabled selected>Sélectionnez votre ville</option>
                   </select>
                 </div>
 
@@ -160,7 +170,7 @@
             <!-- Message de confirmation -->
             <div id="form-success" class="form-success" role="alert" aria-live="polite">
               <p style="font-size: 1.5rem; margin-bottom: 0.75rem;">🎉</p>
-              <p>Merci, nous vous recontactons sous 48h.</p>
+              <p>Merci, nous vous recontactons sous 24h.</p>
               <p style="font-weight: 400; font-size: 0.95rem; margin-top: 0.5rem; color: #065f46;">
                 Notre équipe a bien reçu votre message et revient vers vous rapidement.
               </p>
@@ -175,7 +185,7 @@
             <div class="contact-info-item">
               <span class="ci-icon" aria-hidden="true">📍</span>
               <div class="ci-text">
-                <strong>Centre principal</strong>
+                <strong>Synitier</strong>
                 <span>281 Rue de Vaugirard<br>75015 Paris</span>
               </div>
             </div>
@@ -200,7 +210,7 @@
               <span class="ci-icon" aria-hidden="true">🕐</span>
               <div class="ci-text">
                 <strong>Délai de réponse</strong>
-                <span>Sous 48h ouvrées</span>
+                <span>Sous 24h ouvrées</span>
               </div>
             </div>
 
@@ -229,9 +239,6 @@
           <img src="assets/images/icones/logo-cpf.webp" alt="Mon Compte Formation (CPF)" loading="lazy" height="52">
           <img src="assets/images/icones/logo-transitions-pro.png" alt="Transitions Pro" loading="lazy" height="52">
         </div>
-        <p style="text-align: center; color: var(--text-light); margin-top: 1.5rem; font-size: 0.92rem;">
-          Nous vous accompagnons dans vos démarches de financement. N'hésitez pas à nous demander.
-        </p>
       </div>
     </section>
 

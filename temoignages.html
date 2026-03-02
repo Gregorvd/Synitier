@@ -25,7 +25,6 @@
          ========================================== -->
     <section class="hero-inner" aria-label="Témoignages et résultats">
       <div class="container">
-        <span class="section-tag white">Ils l'ont fait</span>
         <h1>Ceux qui ont choisi Synitier</h1>
         <p>
           Des chiffres concrets et des témoignages authentiques pour vous aider à vous projeter.
@@ -60,68 +59,25 @@
       </div>
     </section>
 
-    <!-- Micro-transition -->
-    <div class="container micro-transition" aria-hidden="true">
-      <p>Ils ont fait le choix de se former chez Synitier. Voici leur témoignage.</p>
-    </div>
-
     <!-- ==========================================
-         IMMERSION
+         IMMERSION — vidéo en fond
          ========================================== -->
-    <section class="video-section" aria-label="Vidéos et témoignages">
+    <section class="video-section temoignages-video-bg" aria-label="Vidéos et témoignages">
+      <video class="temoignages-bg-vid" autoplay loop muted playsinline aria-hidden="true">
+        <source src="assets/video/video-hero.mp4" type="video/mp4">
+      </video>
+
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Immersion</span>
+        <div class="section-header light">
+          <span class="section-tag white">Immersion</span>
           <h2>Découvrez l'atelier de l'intérieur</h2>
           <p>Voyez concrètement ce que vous vivrez dans votre formation Synitier</p>
         </div>
 
-        <!-- Mot du responsable -->
-        <div class="video-main-wrap fade-up">
-          <p class="video-main-label">Le mot du responsable</p>
-          <div class="video-click-trigger"
-            data-vimeo-id="1168173759"
-            data-vimeo-ratio="16/9"
-            role="button" tabindex="0"
-            aria-label="Regarder la présentation du responsable de formation"
-            style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;">
-            <img src="assets/images/sections/vignette-presentation-formation.webp"
-              alt="" aria-hidden="true"
-              style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
-              <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
-                <svg viewBox="0 0 24 24" fill="#293884" width="26" height="26" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mot du formateur -->
-        <div class="video-main-wrap fade-up">
-          <p class="video-main-label">Le mot du formateur</p>
-          <div style="max-width:360px;margin:0 auto;">
-            <div class="video-click-trigger"
-              data-vimeo-id="1168173606"
-              data-vimeo-ratio="9/16"
-              role="button" tabindex="0"
-              aria-label="Regarder la présentation de Sébastien, formateur référent"
-              style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:9/16;">
-              <img src="assets/images/sections/sebastien-travail-velo.webp"
-                alt="" aria-hidden="true"
-                style="width:100%;height:100%;object-fit:cover;display:block;">
-              <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
-                <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
-                  <svg viewBox="0 0 24 24" fill="#293884" width="26" height="26" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Témoignages apprenants -->
-        <div class="section-header" style="margin-top: 1rem;">
-          <h3 style="color: var(--primary);">Témoignages apprenants</h3>
-          <p>Ils ont choisi Synitier pour se former : voici leur expérience</p>
+        <div class="section-header light" style="margin-top:1rem;">
+          <h3>Témoignages apprenants</h3>
+          <p>Ils ont choisi Synitier pour se former&nbsp;: voici leur expérience</p>
         </div>
 
         <div class="temoignages-grid">
@@ -189,6 +145,48 @@
           </article>
 
         </div>
+
+        <!-- Vidéos formateur + responsable (côte à côte) -->
+        <div class="video-duo" style="margin-top:3rem;">
+          <div class="video-main-wrap fade-up">
+            <p class="video-main-label">Le mot du formateur</p>
+            <div class="video-click-trigger"
+              data-vimeo-id="1168173606"
+              data-vimeo-ratio="9/16"
+              role="button" tabindex="0"
+              aria-label="Regarder la présentation de Sébastien, formateur référent"
+              style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:9/16;">
+              <img src="assets/images/sections/sebastien-travail-velo.webp"
+                alt="" aria-hidden="true"
+                style="width:100%;height:100%;object-fit:cover;display:block;">
+              <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
+                <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+                  <svg viewBox="0 0 24 24" fill="#293884" width="26" height="26" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-main-wrap fade-up">
+            <p class="video-main-label">Le mot du responsable</p>
+            <div class="video-click-trigger"
+              data-vimeo-id="1168173759"
+              data-vimeo-ratio="16/9"
+              role="button" tabindex="0"
+              aria-label="Regarder la présentation du responsable de formation"
+              style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;">
+              <img src="assets/images/sections/vignette-presentation-formation.webp"
+                alt="" aria-hidden="true"
+                style="width:100%;height:100%;object-fit:cover;display:block;">
+              <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
+                <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+                  <svg viewBox="0 0 24 24" fill="#293884" width="26" height="26" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 

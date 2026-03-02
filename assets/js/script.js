@@ -24,7 +24,7 @@ function buildNav(activePage) {
  <nav role="navigation" aria-label="Navigation principale">
  <div class="nav-inner">
  <a href="index.html" class="nav-logo" aria-label="Synitier - Accueil">
- <img src="assets/images/logo/logo-synitier-bleu.png" alt="Synitier" class="nav-logo-img" height="40">
+ <img src="assets/images/logo/logo-synitier-bleu.png" alt="Synitier" class="nav-logo-img" height="52">
  </a>
  <ul class="nav-links" id="nav-links">
  ${linksHTML}
@@ -52,7 +52,7 @@ function buildFooter() {
  <div class="footer-grid">
  <div class="footer-brand">
  <a href="index.html" aria-label="Synitier - Accueil">
- <img src="assets/images/logo/logo-synitier-blanc.png" alt="Synitier" class="footer-logo-img" height="44">
+ <img src="assets/images/logo/logo-synitier-blanc.png" alt="Synitier" class="footer-logo-img" height="52">
  </a>
  <p class="footer-tagline">Organisme de formation Qualiopi spécialisé<br>en mobilité légère et urbaine.</p>
  </div>
@@ -116,15 +116,20 @@ function initAccordion() {
  const parent = item.closest('.accordion');
  if (parent) {
  parent.querySelectorAll('.accordion-item.open').forEach(openItem => {
- openItem.classList.remove('open');
- openItem.querySelector('.accordion-panel').classList.remove('open');
- openItem.querySelector('.accordion-btn').setAttribute('aria-expanded', 'false');
+  if (openItem === item) return;
+  openItem.classList.remove('open');
+  openItem.querySelector('.accordion-panel').classList.remove('open');
+  openItem.querySelector('.accordion-btn').setAttribute('aria-expanded', 'false');
  });
  }
- if (!isOpen) {
-   item.classList.add('open');
-   panel.classList.add('open');
-   btn.setAttribute('aria-expanded', 'true');
+ if (isOpen) {
+  item.classList.remove('open');
+  panel.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+ } else {
+  item.classList.add('open');
+  panel.classList.add('open');
+  btn.setAttribute('aria-expanded', 'true');
  }
  });
  btn.setAttribute('aria-expanded', 'false');
@@ -433,6 +438,86 @@ function initHeroNav() {
  window.addEventListener('scroll', update, { passive: true });
  update();
 }
+function initPostalCodeLookup() {
+ const cpInput = document.getElementById('code-postal');
+ if (!cpInput) return;
+ const villeGroup  = document.getElementById('ville-group');
+ const villeSelect = document.getElementById('ville-auto');
+ if (!villeGroup || !villeSelect) return;
+ let debounce = null;
+ cpInput.addEventListener('input', () => {
+  clearTimeout(debounce);
+  const cp = cpInput.value.trim();
+  if (cp.length !== 5 || !/^\d{5}$/.test(cp)) {
+   villeGroup.style.display = 'none';
+   villeSelect.innerHTML = '<option value="" disabled selected>Sélectionnez votre ville</option>';
+   return;
+  }
+  debounce = setTimeout(async () => {
+   try {
+    const res = await fetch('https://geo.api.gouv.fr/communes?codePostal=' + cp + '&fields=nom&format=json');
+    const communes = await res.json();
+    if (!communes.length) {
+     villeGroup.style.display = 'none';
+     return;
+    }
+    villeGroup.style.display = '';
+    if (communes.length === 1) {
+     villeSelect.innerHTML = '<option value="' + communes[0].nom + '" selected>' + communes[0].nom + '</option>';
+    } else {
+     villeSelect.innerHTML = '<option value="" disabled selected>Sélectionnez votre ville</option>' +
+      communes.map(c => '<option value="' + c.nom + '">' + c.nom + '</option>').join('');
+    }
+   } catch (e) {
+    villeGroup.style.display = 'none';
+   }
+  }, 300);
+ });
+}
+function initSingleVideoPlayback() {
+ if (typeof Vimeo === 'undefined' || typeof Vimeo.Player === 'undefined') return;
+ const allPlayers = [];
+ function pauseAllExcept(active) {
+  allPlayers.forEach(p => { if (p !== active) p.pause().catch(() => {}); });
+ }
+ function registerPlayer(iframe) {
+  try {
+   const player = new Vimeo.Player(iframe);
+   allPlayers.push(player);
+   player.on('play', () => pauseAllExcept(player));
+   return player;
+  } catch (e) { return null; }
+ }
+ // Iframes Vimeo déjà présentes (témoignages)
+ document.querySelectorAll('iframe[src*="vimeo.com"]').forEach(registerPlayer);
+ // Iframe modale (src dynamique)
+ const modalIframe = document.getElementById('vimeo-modal-iframe');
+ if (modalIframe) {
+  let modalPlayer = null;
+  const obs = new MutationObserver(() => {
+   if (modalIframe.src && modalIframe.src.includes('vimeo.com')) {
+    if (modalPlayer) {
+     const idx = allPlayers.indexOf(modalPlayer);
+     if (idx > -1) allPlayers.splice(idx, 1);
+    }
+    modalPlayer = registerPlayer(modalIframe);
+   }
+  });
+  obs.observe(modalIframe, { attributes: true, attributeFilter: ['src'] });
+ }
+}
+function fixFrenchPunctuation() {
+ const walker = document.createTreeWalker(
+  document.body, NodeFilter.SHOW_TEXT, null
+ );
+ let node;
+ while ((node = walker.nextNode())) {
+  const parent = node.parentElement;
+  if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE')) continue;
+  const fixed = node.textContent.replace(/ ([;:!?])/g, '\u00A0$1');
+  if (fixed !== node.textContent) node.textContent = fixed;
+ }
+}
 document.addEventListener('DOMContentLoaded', () => {
  const page = document.body.dataset.page || 'accueil';
  buildNav(page);
@@ -442,12 +527,14 @@ document.addEventListener('DOMContentLoaded', () => {
  initScrollAnimations();
  initCounters();
  initVideoModal();
+ initSingleVideoPlayback();
  initHeroNav();
  buildBackToTop();
- if (document.getElementById('contact-form'))  initContactForm();
+ if (document.getElementById('contact-form'))  { initContactForm(); initPostalCodeLookup(); }
  if (document.getElementById('map'))           initMap();
  if (document.querySelector('.formation-tab-btn')) initFormationTabs();
  if (document.querySelector('.filtre-btn[data-filter]')) initFormationFilters();
  initStudyPdf();
  initProgrammePdf();
+ fixFrenchPunctuation();
 });
