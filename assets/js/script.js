@@ -114,14 +114,31 @@ function initAccordion() {
  const panel  = item.querySelector('.accordion-panel');
  const isOpen = item.classList.contains('open');
  const parent = item.closest('.accordion');
+
+ /* 1. Remember where the clicked item sits on screen */
+ const yBefore = item.getBoundingClientRect().top;
+
+ /* 2. Close other open items INSTANTLY (no transition) */
  if (parent) {
- parent.querySelectorAll('.accordion-item.open').forEach(openItem => {
-  if (openItem === item) return;
-  openItem.classList.remove('open');
-  openItem.querySelector('.accordion-panel').classList.remove('open');
-  openItem.querySelector('.accordion-btn').setAttribute('aria-expanded', 'false');
- });
+  parent.querySelectorAll('.accordion-item.open').forEach(openItem => {
+   if (openItem === item) return;
+   const p = openItem.querySelector('.accordion-panel');
+   p.style.transition = 'none';
+   openItem.classList.remove('open');
+   p.classList.remove('open');
+   openItem.querySelector('.accordion-btn').setAttribute('aria-expanded', 'false');
+   void p.offsetHeight;          /* force reflow */
+   p.style.transition = '';      /* restore transition for future use */
+  });
  }
+
+ /* 3. Correct scroll so the clicked item stays in place */
+ const yAfter = item.getBoundingClientRect().top;
+ if (Math.abs(yAfter - yBefore) > 1) {
+  window.scrollBy(0, yAfter - yBefore);
+ }
+
+ /* 4. Toggle the clicked item (with normal transition) */
  if (isOpen) {
   item.classList.remove('open');
   panel.classList.remove('open');
@@ -131,6 +148,17 @@ function initAccordion() {
   panel.classList.add('open');
   btn.setAttribute('aria-expanded', 'true');
  }
+
+ /* 5. If the item ended up behind the fixed header, scroll to show it */
+ requestAnimationFrame(() => {
+  const header = document.getElementById('site-header');
+  const headerH = header ? header.offsetHeight : 0;
+  const rect = item.getBoundingClientRect();
+  if (rect.top < headerH) {
+   window.scrollTo({ top: window.scrollY + rect.top - headerH - 16, behavior: 'smooth' });
+  }
+ });
+
  });
  btn.setAttribute('aria-expanded', 'false');
  });
