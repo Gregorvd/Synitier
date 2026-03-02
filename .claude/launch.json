@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "synitier-local",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": ["/tmp/synitier-serve.py", "8081"],
+      "port": 8081
+    }
+  ]
+}
