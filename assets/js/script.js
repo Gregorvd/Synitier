@@ -24,7 +24,7 @@ function buildNav(activePage) {
  <nav role="navigation" aria-label="Navigation principale">
  <div class="nav-inner">
  <a href="index.html" class="nav-logo" aria-label="Synitier - Accueil">
- <img src="assets/images/logo/logo-synitier-bleu.png" alt="Synitier" class="nav-logo-img" height="52">
+ <img src="assets/images/logo/logo-synitier-bleu.png" alt="Synitier" class="nav-logo-img">
  </a>
  <ul class="nav-links" id="nav-links">
  ${linksHTML}
