@@ -547,27 +547,38 @@ function fixFrenchPunctuation() {
  }
 }
 function initHeroVideos() {
- /* Make all background videos tap-to-play on mobile as fallback */
  document.querySelectorAll('.hero-bg video, .hero-bg-vid').forEach(vid => {
-  /* Try to force autoplay */
-  const playPromise = vid.play();
-  if (playPromise !== undefined) {
-   playPromise.catch(() => {
-    /* Autoplay blocked — add tap-to-play */
-    vid.closest('section').style.cursor = 'pointer';
-    vid.closest('section').addEventListener('click', function handler() {
-     vid.play();
-     this.style.cursor = '';
-     this.removeEventListener('click', handler);
-    });
-   });
-  }
-  /* Ensure attributes are set */
+  /* Force correct attributes for iOS autoplay */
   vid.muted = true;
   vid.playsInline = true;
   vid.loop = true;
+  vid.preload = 'metadata';
   vid.setAttribute('playsinline', '');
   vid.setAttribute('muted', '');
+  vid.setAttribute('preload', 'metadata');
+  /* Ensure overlays don't block taps */
+  const section = vid.closest('section') || vid.parentElement;
+  section.querySelectorAll('.hero-bg::after, [class*="overlay"]').forEach(el => {
+   el.style.pointerEvents = 'none';
+  });
+  /* Try autoplay */
+  const tryPlay = () => {
+   const p = vid.play();
+   if (p && p.catch) p.catch(() => {});
+  };
+  tryPlay();
+  /* Fallback: tap anywhere on the section to start */
+  section.addEventListener('click', () => {
+   if (vid.paused) vid.play().catch(() => {});
+  });
+  /* Also try on first user interaction globally */
+  const onInteract = () => {
+   if (vid.paused) tryPlay();
+   document.removeEventListener('touchstart', onInteract);
+   document.removeEventListener('click', onInteract);
+  };
+  document.addEventListener('touchstart', onInteract, { once: true, passive: true });
+  document.addEventListener('click', onInteract, { once: true });
  });
 }
 document.addEventListener('DOMContentLoaded', () => {
