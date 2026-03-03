@@ -419,30 +419,12 @@ function initFormationFilters() {
  });
  applyFilter('all');
 }
-function initProgrammePdf() {
- const btn = document.getElementById('programme-toggle-btn');
+function initTogglePanel(btnId, panelId) {
+ const btn = document.getElementById(btnId);
  if (!btn) return;
  btn.addEventListener('click', e => {
   e.preventDefault();
-  const panel   = document.getElementById('programme-pdf-panel');
-  const isOpen  = btn.getAttribute('aria-expanded') === 'true';
-  btn.setAttribute('aria-expanded', !isOpen);
-  const chevron = btn.querySelector('.study-chevron');
-  if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
-  panel.style.display = isOpen ? 'none' : 'block';
-  if (!isOpen) {
-   const iframe = panel.querySelector('iframe[data-src]');
-   if (iframe) { iframe.src = iframe.dataset.src; iframe.removeAttribute('data-src'); }
-   setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
-  }
- });
-}
-function initStudyPdf() {
- const btn = document.getElementById('etude-toggle-btn');
- if (!btn) return;
- btn.addEventListener('click', e => {
-  e.preventDefault();
-  const panel   = document.getElementById('etude-pdf-panel');
+  const panel   = document.getElementById(panelId);
   const isOpen  = btn.getAttribute('aria-expanded') === 'true';
   btn.setAttribute('aria-expanded', !isOpen);
   const chevron = btn.querySelector('.study-chevron');
@@ -553,11 +535,11 @@ function initHeroVideos() {
   vid.defaultMuted = true;
   vid.playsInline = true;
   vid.loop = true;
-  vid.preload = 'auto';
+  vid.preload = 'metadata';
   vid.setAttribute('playsinline', '');
   vid.setAttribute('webkit-playsinline', '');
   vid.setAttribute('muted', '');
-  vid.setAttribute('preload', 'auto');
+  vid.setAttribute('preload', 'metadata');
   vid.volume = 0;
   /* Remove any src blocking — force load */
   vid.load();
@@ -574,8 +556,7 @@ function initHeroVideos() {
    vid.addEventListener('canplay', tryPlay, { once: true });
   }
   /* Retry after short delay */
-  setTimeout(tryPlay, 500);
-  setTimeout(tryPlay, 1500);
+  setTimeout(tryPlay, 800);
   /* Fallback: any tap on the section starts the video */
   const section = vid.closest('section') || vid.parentElement;
   section.addEventListener('click', () => {
@@ -603,7 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
  if (document.getElementById('map'))           initMap();
  if (document.querySelector('.formation-tab-btn')) initFormationTabs();
  if (document.querySelector('.filtre-btn[data-filter]')) initFormationFilters();
- initStudyPdf();
- initProgrammePdf();
+ initTogglePanel('etude-toggle-btn', 'etude-pdf-panel');
+ initTogglePanel('programme-toggle-btn', 'programme-pdf-panel');
  fixFrenchPunctuation();
 });

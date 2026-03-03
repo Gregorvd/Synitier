@@ -4,8 +4,8 @@
     {
       "name": "synitier-local",
       "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["/tmp/synitier-serve.py", "8081"],
-      "port": 8081
+      "runtimeArgs": ["/tmp/synitier-serve.py", "8090"],
+      "port": 8090
     }
   ]
 }

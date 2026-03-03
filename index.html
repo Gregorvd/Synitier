@@ -13,19 +13,6 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-  <!-- HERO VIDEO – correctif cascade (après style.css) -->
-  <style>
-    body .hero .hero-bg{min-height:360px!important}
-    body .hero .hero-bg::after{display:none!important}
-    @media(max-width:768px){
-      body .hero{height:520px!important;overflow:hidden!important}
-      body .hero .hero-bg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:unset!important;overflow:hidden!important}
-      body .hero .hero-bg>video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}
-      body .hero .hero-content{z-index:2!important;padding:2rem 1.25rem!important}
-      #site-header .nav-cta{display:flex!important;align-items:center!important;margin-left:auto!important}
-      #site-header .nav-cta.btn{padding:0.55rem 1rem!important;font-size:0.85rem!important;white-space:nowrap!important}
-    }
-  </style>
 </head>
 <body data-page="accueil">
 
@@ -39,7 +26,7 @@
          ========================================== -->
     <section class="hero" aria-label="Présentation principale">
       <div class="hero-bg">
-        <video autoplay loop muted playsinline preload="auto"
+        <video autoplay loop muted playsinline preload="metadata"
           aria-hidden="true">
           <source src="assets/video/video-hero.mp4" type="video/mp4">
         </video>
@@ -209,7 +196,7 @@
               aria-label="Regarder la présentation de Sébastien, formateur référent"
               style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:9/16;">
               <img src="assets/images/sections/sebastien-travail-velo.webp"
-                alt="" aria-hidden="true"
+                alt="" aria-hidden="true" loading="lazy"
                 style="width:100%;height:100%;object-fit:cover;display:block;">
               <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
                 <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
@@ -229,7 +216,7 @@
               aria-label="Regarder la présentation du responsable de formation"
               style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;">
               <img src="assets/images/sections/vignette-presentation-formation.webp"
-                alt="" aria-hidden="true"
+                alt="" aria-hidden="true" loading="lazy"
                 style="width:100%;height:100%;object-fit:cover;display:block;">
               <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
                 <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
