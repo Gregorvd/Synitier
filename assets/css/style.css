@@ -166,6 +166,12 @@ a.public-card{text-decoration:none;color:inherit;cursor:pointer;display:flex;}
 /* Point 6 – Objectifs pédagogiques : texte descriptif centré */
 .objectif-item p{text-align:center!important}
 
+/* Reduce gaps between formation detail sections (all viewports) */
+.section-detail{margin-bottom:0.75rem!important;padding-top:1.5rem!important;padding-bottom:1.5rem!important}
+.section-detail[aria-label*="ublic"]{padding-bottom:1rem!important}
+.section-detail[aria-label*="bjectifs"]{padding-top:0.25rem!important;padding-bottom:0.75rem!important}
+.objectifs-block{margin-top:0.5rem!important;padding:1.5rem!important}
+
 /* ========================================================
    MOBILE OPTIMISATION
    ======================================================== */
@@ -296,13 +302,16 @@ section{padding-top:2rem!important;padding-bottom:2rem!important}
 .quick-facts{grid-template-columns:repeat(3,1fr)!important;padding:1rem!important}
 
 /* Formation detail pages */
-.section-detail{padding:1.25rem 0.75rem!important}
+.section-detail{padding:1.25rem 0.75rem!important;margin-bottom:0.5rem!important}
 .section-detail h2{font-size:1.15rem!important}
 .resume-block{padding:1.25rem 0.75rem!important;border-radius:var(--radius)!important;margin:1.25rem 0!important}
 .resume-list{grid-template-columns:1fr!important}
-.objectifs-block{padding:0.75rem 0.5rem!important;margin:0!important}
-.section-detail[aria-label*="bjectifs"]{padding-top:0.75rem!important;padding-bottom:0.5rem!important;margin-bottom:0.75rem!important}
-.section-detail[aria-label*="bjectifs"] h2{margin-bottom:0.4rem!important}
+/* Pour qui → Objectifs : reduce gap between sections */
+.section-detail[aria-label*="ublic"]{margin-bottom:0.5rem!important;padding-bottom:1.25rem!important}
+.objectifs-block{padding:0.5rem 0.4rem!important;margin:0!important}
+.section-detail[aria-label*="bjectifs"]{padding-top:0.4rem!important;padding-bottom:0.25rem!important;margin-top:0!important;margin-bottom:0.4rem!important}
+.section-detail[aria-label*="bjectifs"] h2{margin-bottom:0.3rem!important;font-size:1.05rem!important}
+.section-detail[aria-label*="bjectifs"] .section-tag{margin-bottom:0.3rem!important}
 .objectifs-grid{grid-template-columns:repeat(2,1fr)!important;gap:0.35rem!important}
 .gains-grid{grid-template-columns:1fr!important}
 .profils-grid{grid-template-columns:repeat(2,1fr)!important}
