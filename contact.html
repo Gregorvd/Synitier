@@ -2,6 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://player.vimeo.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; frame-src https://player.vimeo.com 'self'; connect-src 'self' https://geo.api.gouv.fr https://vimeo.com https://*.vimeo.com https://*.vimeocdn.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contactez Synitier pour parler de votre projet de formation. Réponse sous 24h. Paris, Lyon, Lille, Marseille, Montpellier.">
   <title>Synitier | Contactez-nous — Formation mobilité légère et urbaine</title>
@@ -49,6 +52,11 @@
             </div>
 
             <form id="contact-form" novalidate aria-label="Formulaire de contact Synitier">
+              <!-- Honeypot anti-bot -->
+              <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+                <label for="website">Ne pas remplir ce champ</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
               <div class="form-grid">
 
                 <div class="form-group">
@@ -151,9 +159,14 @@
 
               </div>
 
-              <p class="form-note" style="margin: 1rem 0 1.5rem;">
+              <!-- RGPD consent -->
+              <label class="rgpd-consent-row" id="rgpd-row" style="margin-top:0.75rem;">
+                <input type="checkbox" id="rgpd-consent" name="rgpd_consent" required aria-required="true" class="custom-check">
+                <span>J'accepte que mes données soient utilisées pour traiter ma demande. <a href="mentions-legales.html#rgpd" target="_blank" rel="noopener">En savoir plus</a></span>
+              </label>
+
+              <p class="form-note" style="margin: 0.75rem 0 1.5rem;">
                 <span aria-hidden="true">*</span> Champs obligatoires.
-                Vos données sont utilisées uniquement pour vous recontacter.
               </p>
 
               <div class="form-submit">

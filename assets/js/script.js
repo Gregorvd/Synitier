@@ -210,44 +210,138 @@ function initScrollAnimations() {
  targets.forEach(el => observer.observe(el));
 }
 function initContactForm() {
- const form    = document.getElementById('contact-form');
+ const form = document.getElementById('contact-form');
  const success = document.getElementById('form-success');
  if (!form) return;
- form.addEventListener('submit', (e) => {
- e.preventDefault();
- const required = form.querySelectorAll('[required]');
- let valid = true;
- required.forEach(field => {
- field.style.borderColor = '';
- if (!field.value.trim()) {
- field.style.borderColor = '#f59e0b';
- valid = false;
+
+ // Validation patterns
+ var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+ var phoneRegex = /^(?:(?:\+33|0033|0)\s?[1-9])(?:[\s.\-]?\d{2}){4}$/;
+ var cpRegex = /^\d{5}$/;
+
+ function showError(field, msg) {
+  field.style.borderColor = '#ef4444';
+  var errEl = field.parentElement.querySelector('.field-error');
+  if (!errEl) {
+   errEl = document.createElement('span');
+   errEl.className = 'field-error';
+   errEl.setAttribute('role', 'alert');
+   errEl.style.cssText = 'color:#ef4444;font-size:0.85rem;font-weight:600;margin-top:0.25rem;display:block;';
+   field.parentElement.appendChild(errEl);
+  }
+  errEl.textContent = msg;
  }
+
+ function clearError(field) {
+  field.style.borderColor = '';
+  var errEl = field.parentElement.querySelector('.field-error');
+  if (errEl) errEl.remove();
+ }
+
+ form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Honeypot check — if filled, fake success silently
+  var honeypot = form.querySelector('#website');
+  if (honeypot && honeypot.value) {
+   var btn = form.querySelector('[type="submit"]');
+   btn.disabled = true;
+   btn.textContent = 'Envoi en cours\u2026';
+   setTimeout(function() {
+    form.style.display = 'none';
+    if (success) {
+     success.classList.add('visible');
+     success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+   }, 900);
+   return;
+  }
+
+  // Clear all previous errors
+  form.querySelectorAll('input, select, textarea').forEach(clearError);
+
+  var valid = true;
+
+  // Required fields
+  form.querySelectorAll('[required]').forEach(function(field) {
+   if (field.type === 'checkbox') {
+    if (!field.checked) {
+     showError(field, 'Veuillez accepter pour continuer.');
+     valid = false;
+    }
+   } else if (!field.value.trim()) {
+    showError(field, 'Ce champ est obligatoire.');
+    valid = false;
+   }
+  });
+
+  // Email format
+  var emailField = form.querySelector('[type="email"]');
+  if (emailField && emailField.value.trim() && !emailRegex.test(emailField.value.trim())) {
+   showError(emailField, 'Adresse email invalide.');
+   valid = false;
+  }
+
+  // Phone format
+  var phoneField = form.querySelector('#telephone');
+  if (phoneField && phoneField.value.trim()) {
+   var cleanPhone = phoneField.value.trim().replace(/\s+/g, ' ');
+   if (!phoneRegex.test(cleanPhone)) {
+    showError(phoneField, 'Numéro de téléphone invalide.');
+    valid = false;
+   }
+  }
+
+  // Postal code format
+  var cpField = form.querySelector('#code-postal');
+  if (cpField && cpField.value.trim() && !cpRegex.test(cpField.value.trim())) {
+   showError(cpField, 'Code postal invalide (5 chiffres).');
+   valid = false;
+  }
+
+  // Max length protection
+  form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(function(f) {
+   if (f.value.length > 1000) {
+    showError(f, 'Texte trop long.');
+    valid = false;
+   }
+  });
+
+  if (!valid) {
+   var firstErr = form.querySelector('.field-error');
+   if (firstErr) {
+    var field = firstErr.parentElement.querySelector('input, select, textarea');
+    if (field) field.focus();
+   }
+   return;
+  }
+
+  // Success
+  var submitBtn = form.querySelector('[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Envoi en cours\u2026';
+  setTimeout(function() {
+   form.style.display = 'none';
+   if (success) {
+    success.classList.add('visible');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   }
+  }, 900);
  });
- const emailField = form.querySelector('[type="email"]');
- if (emailField && emailField.value && !emailField.value.includes('@')) {
- emailField.style.borderColor = '#f59e0b';
- valid = false;
- }
- if (!valid) {
- const firstInvalid = form.querySelector('[style*="borderColor"]');
- if (firstInvalid) firstInvalid.focus();
- return;
- }
- const submitBtn = form.querySelector('[type="submit"]');
- submitBtn.disabled = true;
- submitBtn.textContent = 'Envoi en cours...';
- setTimeout(() => {
- form.style.display = 'none';
- if (success) {
- success.classList.add('visible');
- success.scrollIntoView({ behavior: 'smooth', block: 'center' });
- }
- }, 900);
+
+ // Clear errors on input
+ form.querySelectorAll('input, select, textarea').forEach(function(field) {
+  field.addEventListener('input', function() { clearError(field); });
  });
- form.querySelectorAll('input, select, textarea').forEach(field => {
- field.addEventListener('input', () => { field.style.borderColor = ''; });
- });
+
+ // RGPD row visual toggle
+ var rgpdCheck = form.querySelector('#rgpd-consent');
+ var rgpdRow = form.querySelector('#rgpd-row');
+ if (rgpdCheck && rgpdRow) {
+  rgpdCheck.addEventListener('change', function() {
+   rgpdRow.classList.toggle('checked', rgpdCheck.checked);
+  });
+ }
 }
 function initMap() {
  const mapEl = document.getElementById('map');
@@ -454,29 +548,51 @@ function initPostalCodeLookup() {
  const villeGroup  = document.getElementById('ville-group');
  const villeSelect = document.getElementById('ville-auto');
  if (!villeGroup || !villeSelect) return;
+
+ // Safe helper: reset select to default option (no innerHTML)
+ function resetSelect() {
+  villeSelect.textContent = '';
+  var defOpt = document.createElement('option');
+  defOpt.value = '';
+  defOpt.disabled = true;
+  defOpt.selected = true;
+  defOpt.textContent = 'Sélectionnez votre ville';
+  villeSelect.appendChild(defOpt);
+ }
+
  let debounce = null;
  cpInput.addEventListener('input', () => {
   clearTimeout(debounce);
   const cp = cpInput.value.trim();
   if (cp.length !== 5 || !/^\d{5}$/.test(cp)) {
    villeGroup.style.display = 'none';
-   villeSelect.innerHTML = '<option value="" disabled selected>Sélectionnez votre ville</option>';
+   resetSelect();
    return;
   }
   debounce = setTimeout(async () => {
    try {
     const res = await fetch('https://geo.api.gouv.fr/communes?codePostal=' + cp + '&fields=nom&format=json');
     const communes = await res.json();
-    if (!communes.length) {
+    if (!Array.isArray(communes) || !communes.length) {
      villeGroup.style.display = 'none';
      return;
     }
     villeGroup.style.display = '';
+    villeSelect.textContent = '';
     if (communes.length === 1) {
-     villeSelect.innerHTML = '<option value="' + communes[0].nom + '" selected>' + communes[0].nom + '</option>';
+     var opt = document.createElement('option');
+     opt.value = communes[0].nom;
+     opt.selected = true;
+     opt.textContent = communes[0].nom;
+     villeSelect.appendChild(opt);
     } else {
-     villeSelect.innerHTML = '<option value="" disabled selected>Sélectionnez votre ville</option>' +
-      communes.map(c => '<option value="' + c.nom + '">' + c.nom + '</option>').join('');
+     resetSelect();
+     communes.forEach(function(c) {
+      var o = document.createElement('option');
+      o.value = c.nom;
+      o.textContent = c.nom;
+      villeSelect.appendChild(o);
+     });
     }
    } catch (e) {
     villeGroup.style.display = 'none';
