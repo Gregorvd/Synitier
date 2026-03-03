@@ -373,7 +373,7 @@ function initVideoModal() {
  const isPortrait = ratio === '9/16';
  inner.style.maxWidth = isPortrait ? 'min(400px,90vw)' : 'min(860px,95vw)';
  ratioWrap.style.paddingBottom = isPortrait ? '177.78%' : '56.25%';
- iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&badge=0&app_id=58479`;
+ iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=0&title=0&byline=0&portrait=0&badge=0&app_id=58479`;
  overlay.classList.add('open');
  document.body.style.overflow = 'hidden';
  closeBtn.focus();
