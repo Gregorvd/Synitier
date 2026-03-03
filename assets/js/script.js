@@ -546,6 +546,30 @@ function fixFrenchPunctuation() {
   if (fixed !== node.textContent) node.textContent = fixed;
  }
 }
+function initHeroVideos() {
+ /* Make all background videos tap-to-play on mobile as fallback */
+ document.querySelectorAll('.hero-bg video, .hero-bg-vid').forEach(vid => {
+  /* Try to force autoplay */
+  const playPromise = vid.play();
+  if (playPromise !== undefined) {
+   playPromise.catch(() => {
+    /* Autoplay blocked — add tap-to-play */
+    vid.closest('section').style.cursor = 'pointer';
+    vid.closest('section').addEventListener('click', function handler() {
+     vid.play();
+     this.style.cursor = '';
+     this.removeEventListener('click', handler);
+    });
+   });
+  }
+  /* Ensure attributes are set */
+  vid.muted = true;
+  vid.playsInline = true;
+  vid.loop = true;
+  vid.setAttribute('playsinline', '');
+  vid.setAttribute('muted', '');
+ });
+}
 document.addEventListener('DOMContentLoaded', () => {
  const page = document.body.dataset.page || 'accueil';
  buildNav(page);
@@ -557,6 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
  initVideoModal();
  initSingleVideoPlayback();
  initHeroNav();
+ initHeroVideos();
  buildBackToTop();
  if (document.getElementById('contact-form'))  { initContactForm(); initPostalCodeLookup(); }
  if (document.getElementById('map'))           initMap();
