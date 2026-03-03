@@ -548,37 +548,42 @@ function fixFrenchPunctuation() {
 }
 function initHeroVideos() {
  document.querySelectorAll('.hero-bg video, .hero-bg-vid').forEach(vid => {
-  /* Force correct attributes for iOS autoplay */
+  /* Force attributes — iOS requires muted+playsinline for autoplay */
   vid.muted = true;
+  vid.defaultMuted = true;
   vid.playsInline = true;
   vid.loop = true;
-  vid.preload = 'metadata';
+  vid.preload = 'auto';
   vid.setAttribute('playsinline', '');
+  vid.setAttribute('webkit-playsinline', '');
   vid.setAttribute('muted', '');
-  vid.setAttribute('preload', 'metadata');
-  /* Ensure overlays don't block taps */
-  const section = vid.closest('section') || vid.parentElement;
-  section.querySelectorAll('.hero-bg::after, [class*="overlay"]').forEach(el => {
-   el.style.pointerEvents = 'none';
-  });
-  /* Try autoplay */
+  vid.setAttribute('preload', 'auto');
+  vid.volume = 0;
+  /* Remove any src blocking — force load */
+  vid.load();
+  /* Try play immediately */
   const tryPlay = () => {
    const p = vid.play();
    if (p && p.catch) p.catch(() => {});
   };
-  tryPlay();
-  /* Fallback: tap anywhere on the section to start */
+  /* Play when ready */
+  if (vid.readyState >= 2) {
+   tryPlay();
+  } else {
+   vid.addEventListener('loadeddata', tryPlay, { once: true });
+   vid.addEventListener('canplay', tryPlay, { once: true });
+  }
+  /* Retry after short delay */
+  setTimeout(tryPlay, 500);
+  setTimeout(tryPlay, 1500);
+  /* Fallback: any tap on the section starts the video */
+  const section = vid.closest('section') || vid.parentElement;
   section.addEventListener('click', () => {
    if (vid.paused) vid.play().catch(() => {});
-  });
-  /* Also try on first user interaction globally */
-  const onInteract = () => {
-   if (vid.paused) tryPlay();
-   document.removeEventListener('touchstart', onInteract);
-   document.removeEventListener('click', onInteract);
-  };
-  document.addEventListener('touchstart', onInteract, { once: true, passive: true });
-  document.addEventListener('click', onInteract, { once: true });
+  }, { passive: true });
+  section.addEventListener('touchstart', () => {
+   if (vid.paused) vid.play().catch(() => {});
+  }, { passive: true });
  });
 }
 document.addEventListener('DOMContentLoaded', () => {
