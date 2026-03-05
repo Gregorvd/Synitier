@@ -127,7 +127,12 @@
 .hero-bg::after{content:''!important;display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(to bottom,rgba(26,31,60,0.30) 0%,rgba(41,56,132,0.15) 100%)!important;pointer-events:none!important}
 .hero-content{position:absolute!important;inset:0!important;display:flex!important;flex-direction:column!important;justify-content:center!important;z-index:1!important}
 /* Intro section – reduce top gap so more content visible below hero */
-.intro-section{padding-top:1.5rem!important}
+.intro-section{padding-top:3rem!important}
+/* Pills – 1 line on desktop */
+.intro-pills{gap:0.35rem!important;flex-wrap:nowrap!important}
+.pill{font-size:0.75rem!important;padding:0.3rem 0.7rem!important;white-space:nowrap!important}
+/* Intro visual – vertically centered between h2 and pills */
+.intro-visual{margin-top:2.6rem!important}
 /* Objectifs : numéro au-dessus du texte, texte centré */
 .objectif-item{flex-direction:column!important;align-items:center!important;text-align:center!important}
 .objectif-num{margin-top:0!important;margin-bottom:0.5rem!important}
@@ -405,6 +410,10 @@ div[style*="minmax(240px"]{grid-template-columns:1fr!important}
 
 /* Formation card body – wider */
 .fcard-cat-body{padding:1.25rem 1.5rem!important}
+
+/* Pills – 2 lines on mobile */
+.intro-pills{gap:0.35rem!important;flex-wrap:wrap!important}
+.pill{font-size:0.72rem!important;padding:0.3rem 0.7rem!important;white-space:nowrap!important}
 }
 
 /* ========================================================
