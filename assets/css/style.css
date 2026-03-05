@@ -118,20 +118,16 @@
 .fcard-cat .fcard-cat-meta{padding:0.65rem 0!important}
 .fcard-cat .fcard-cat-body .btn{padding:0.55rem 1.1rem!important;font-size:0.88rem!important}
 @media(max-width:768px){.fcard-cat{flex-direction:column}.fcard-cat .fcard-cat-media{flex:none;width:100%;height:200px!important;min-height:unset}.fcard-cat .fcard-cat-body{flex:none}}/* ===== HERO VIDÉO ===== */
-/* Hero BG hauteur minimum desktop */
-body .hero .hero-bg{min-height:360px!important}
 /* Nav : fond blanc garanti */
 #site-header{background:var(--white)!important;box-shadow:var(--shadow-sm)!important}
-/* Supprimer l'overlay gradient et l'animation zoom */
-.hero-bg::after{display:none!important}
-/* Hero : hauteur calée sur la vidéo (pleine largeur, pas de recadrage latéral) */
-.hero{position:relative!important;height:auto!important;min-height:unset!important;overflow:hidden!important;padding:0!important}
-/* hero-bg en flux normal : le hero prend la hauteur naturelle de la vidéo */
-.hero-bg{position:relative!important;inset:unset!important;width:100%!important;overflow:hidden!important;animation:none!important}
-/* Vidéo : 100% largeur, hauteur auto = ratio naturel, aucun recadrage */
-.hero-bg>video{position:static!important;inset:unset!important;width:100%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:unset!important;transform:none!important;display:block!important}
-/* Contenu hero en superposition sur la vidéo */
+/* ===== HERO VIDÉO – desktop (banner style) ===== */
+.hero{position:relative!important;height:80vh!important;max-height:850px!important;min-height:500px!important;overflow:hidden!important;padding:0!important}
+.hero-bg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important;animation:none!important}
+.hero-bg>video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;transform:none!important;display:block!important}
+.hero-bg::after{content:''!important;display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(to bottom,rgba(26,31,60,0.30) 0%,rgba(41,56,132,0.15) 100%)!important;pointer-events:none!important}
 .hero-content{position:absolute!important;inset:0!important;display:flex!important;flex-direction:column!important;justify-content:center!important;z-index:1!important}
+/* Intro section – reduce top gap so more content visible below hero */
+.intro-section{padding-top:1.5rem!important}
 /* Objectifs : numéro au-dessus du texte, texte centré */
 .objectif-item{flex-direction:column!important;align-items:center!important;text-align:center!important}
 .objectif-num{margin-top:0!important;margin-bottom:0.5rem!important}
@@ -178,10 +174,10 @@ a.public-card{text-decoration:none;color:inherit;cursor:pointer;display:flex;}
 
 /* 1. Hero vidéo mobile — spécificité (0,2,2) bat l'override global (0,1,1) */
 @media(max-width:768px){
-  body .hero{height:520px!important;overflow:hidden!important}
+  body .hero{height:80vh!important;min-height:400px!important;max-height:680px!important;overflow:hidden!important}
   body .hero .hero-bg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:unset!important;overflow:hidden!important}
   body .hero .hero-bg>video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}
-  body .hero .hero-bg::after{content:''!important;display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(to bottom,rgba(26,31,60,0.62) 0%,rgba(41,56,132,0.45) 100%)!important}
+  body .hero .hero-bg::after{content:''!important;display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(to bottom,rgba(26,31,60,0.35) 0%,rgba(41,56,132,0.20) 100%)!important}
   body .hero .hero-content{z-index:2!important;padding:2rem 1.25rem!important}
   .hero-content h1{font-size:clamp(1.75rem,5.5vw,2.4rem)!important;line-height:1.25!important;margin-bottom:1rem!important}
   .hero-content .hero-sub{font-size:1rem!important;margin-bottom:1.75rem!important}
