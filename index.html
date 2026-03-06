@@ -2,15 +2,12 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://player.vimeo.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; frame-src https://player.vimeo.com 'self'; connect-src 'self' https://geo.api.gouv.fr https://vimeo.com https://*.vimeo.com https://*.vimeocdn.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://player.vimeo.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self'; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; frame-src https://player.vimeo.com 'self'; connect-src 'self' https://geo.api.gouv.fr https://vimeo.com https://*.vimeo.com https://*.vimeocdn.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Synitier, organisme de formation Qualiopi spécialisé en mobilité légère. Devenez technicien réparateur de vélos, vélos à assistance électrique et trottinettes électriques. Formation finançable jusqu'à 100%.">
   <title>Synitier | Formation réparation vélo et mobilité électrique</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -48,9 +45,11 @@
          ========================================== -->
     <section class="intro-section" aria-label="Présentation de Synitier">
       <div class="container">
+        <div class="section-header" style="margin-bottom:1.5rem">
+          <span class="section-tag">Bienvenue chez Synitier</span>
+        </div>
         <div class="intro-grid">
           <div class="intro-text">
-            <span class="section-tag">Bienvenue chez Synitier</span>
             <h2>Un apprentissage concret,<br>dans un vrai atelier</h2>
             <p>
               Vous souhaitez apprendre à entretenir, diagnostiquer, réparer ou remettre en état
@@ -59,7 +58,7 @@
             </p>
             <p>
               Chez Synitier, nous sommes persuadés que tout le monde peut apprendre un vrai métier à tout âge.
-              Les sessions sont adaptées à votre rythme, encadrées par des formateurs praticiens
+              Les sessions sont adaptées à votre rythme, encadrées par des formateurs experts
               et orientées vers l'emploi dès le premier jour.
             </p>
             <div class="intro-pills">
@@ -94,17 +93,24 @@
         </div>
         <div class="public-grid">
           <a href="formation.html" class="public-card fade-up">
+            <span class="public-icon" aria-hidden="true">🚀</span>
+            <div>
+              <h4>Vous souhaitez<br><strong>créer votre activité</strong></h4>
+              <p>Ouvrir votre propre atelier ou développer une activité indépendante dans la réparation.</p>
+            </div>
+          </a>
+          <a href="formation.html" class="public-card fade-up">
             <span class="public-icon" aria-hidden="true">🔄</span>
             <div>
               <h4>Vous êtes<br><strong>en reconversion</strong></h4>
               <p>Envie de changer d'horizon et d'apprendre un métier manuel, utile et concret&nbsp;? Synitier vous accompagne de A à&nbsp;Z.</p>
             </div>
           </a>
-          <a href="formation.html" class="public-card fade-up">
-            <span class="public-icon" aria-hidden="true">🧑‍💼</span>
+          <a href="formation.html" class="public-card public-card--featured fade-up">
+            <span class="public-icon" aria-hidden="true">🎯</span>
             <div>
-              <h4>Vous préparez<br><strong>votre retraite</strong></h4>
-              <p>Maintenir une activité, constituer un complément de revenu ou simplement continuer à apprendre&nbsp;: la formation s'adapte à vous.</p>
+              <h4>Vous souhaitez<br><strong>apprendre un métier</strong></h4>
+              <p>Acquérir un savoir-faire concret dans la réparation de vélos et mobilités électriques, accessible sans prérequis.</p>
             </div>
           </a>
           <a href="formation.html" class="public-card fade-up">
@@ -115,17 +121,10 @@
             </div>
           </a>
           <a href="formation.html" class="public-card fade-up">
-            <span class="public-icon" aria-hidden="true">🎯</span>
+            <span class="public-icon" aria-hidden="true">🧑‍💼</span>
             <div>
-              <h4>Vous souhaitez<br><strong>apprendre un métier</strong></h4>
-              <p>Acquérir un savoir-faire concret dans la réparation de vélos et mobilités électriques, accessible sans prérequis.</p>
-            </div>
-          </a>
-          <a href="formation.html" class="public-card fade-up">
-            <span class="public-icon" aria-hidden="true">🚀</span>
-            <div>
-              <h4>Vous souhaitez<br><strong>créer votre activité</strong></h4>
-              <p>Ouvrir votre propre atelier ou développer une activité indépendante dans la réparation.</p>
+              <h4>Vous préparez<br><strong>votre retraite</strong></h4>
+              <p>Maintenir une activité, constituer un complément de revenus ou simplement continuer à apprendre&nbsp;: la formation s'adapte à vous.</p>
             </div>
           </a>
         </div>
@@ -197,8 +196,8 @@
               data-vimeo-ratio="9/16"
               role="button" tabindex="0"
               aria-label="Regarder la présentation de Sébastien, formateur référent"
-              style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:9/16;">
-              <img src="assets/images/temoignages/sebastien.webp"
+              style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;">
+              <img src="assets/images/sections/sebastien-travail-velo.webp"
                 alt="" aria-hidden="true" loading="lazy"
                 style="width:100%;height:100%;object-fit:cover;display:block;">
               <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
