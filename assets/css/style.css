@@ -30,8 +30,8 @@
 .breadcrumb-sep{color:rgba(255,255,255,0.45)}
 .breadcrumb-current{color:#fff;font-weight:700}
 /* Filter bar */
-.filtres-bar{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-bottom:2.5rem}
-.filtre-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.65rem 1.4rem;border:2px solid var(--border);border-radius:50px;background:var(--white);color:var(--text-light);font-family:var(--font-body);font-size:0.97rem;font-weight:700;cursor:pointer;transition:all var(--transition)}
+.filtres-bar{display:flex;flex-wrap:nowrap;gap:0.5rem;justify-content:center;margin-bottom:1.5rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.filtres-bar::-webkit-scrollbar{display:none}
+.filtre-btn{display:inline-flex;align-items:center;gap:0.35rem;padding:0.45rem 0.95rem;border:2px solid var(--border);border-radius:50px;background:var(--white);color:var(--text-light);font-family:var(--font-body);font-size:0.88rem;font-weight:700;cursor:pointer;transition:all var(--transition);white-space:nowrap}
 .filtre-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light)}
 .filtre-btn.active{background:var(--primary);border-color:var(--primary);color:var(--white)}
 .filtre-btn.active:hover{background:var(--primary-dark);border-color:var(--primary-dark)}
@@ -577,9 +577,6 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:3
 
 /* Titre histoire sur la page Qui sommes-nous */
 .histoire-title{white-space:nowrap}
-
-/* Filtres formations – texte non coupé, retour à la ligne si nécessaire */
-.filtre-btn{white-space:nowrap}
 
 /* Lien étude – « Une étude récente confirme… » */
 #etude-toggle-btn{white-space:nowrap}
