@@ -193,8 +193,7 @@
 /* Financement icon */
 .financement-icon{font-size:1.6rem}
 @media(max-width:1024px){.detail-layout{grid-template-columns:1fr}.detail-sidebar{position:static}}
-@media(max-width:768px){.quick-facts{grid-template-columns:repeat(2,1fr)}.quick-fact:not(:last-child){border-right:none;border-bottom:1px solid var(--border);padding-bottom:0.75rem}.catalogue-grid{grid-template-columns:1fr}.fcard-cat-meta{gap:0.75rem}}
-@media(max-width:480px){.filtres-bar{flex-wrap:wrap;gap:0.4rem;overflow-x:visible}.filtre-btn{padding:0.4rem 0.75rem;font-size:0.8rem}}
+@media(max-width:768px){.quick-facts{grid-template-columns:repeat(2,1fr)}.quick-fact:not(:last-child){border-right:none;border-bottom:1px solid var(--border);padding-bottom:0.75rem}.catalogue-grid{grid-template-columns:1fr}.fcard-cat-meta{gap:0.75rem}.filtres-bar{flex-wrap:wrap;overflow-x:visible}.filtre-btn{padding:0.4rem 0.75rem;font-size:0.8rem}}
 /* Cartes catalogue en ligne (horizontales) */
 .catalogue-grid{grid-template-columns:1fr;gap:1.25rem}
 .filtres-bar{margin-bottom:1.5rem}
