@@ -342,13 +342,16 @@ a.public-card{text-decoration:none;color:inherit;cursor:pointer;display:flex;}
    COMPREHENSIVE MOBILE – 768px
    ======================================================== */
 @media(max-width:768px){
-/* Base overflow protection */
-html,body{overflow-x:hidden}
-.page-content{overflow-x:hidden}
+/* Base overflow protection – fix iOS body expansion / right-shift bug */
+html,body{overflow-x:hidden;width:100%}
+body{position:relative}
+.page-content{overflow:hidden;width:100%}
 img,video,iframe{max-width:100%}
 
-/* Global – balanced side padding */
-.container{padding:0 1rem}
+/* Global – balanced side padding + prevent child overflow */
+.container{padding:0 1rem;max-width:100%}
+.detail-layout,.detail-layout>div{max-width:100%;overflow-x:hidden}
+.section-detail,.quick-facts-card{max-width:100%;overflow-x:hidden}
 section{padding-top:2rem;padding-bottom:2rem}
 .section-header{margin-bottom:1.25rem}
 .section-header h2{font-size:1.4rem}
