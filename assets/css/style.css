@@ -30,7 +30,7 @@
 .breadcrumb-sep{color:rgba(255,255,255,0.45)}
 .breadcrumb-current{color:#fff;font-weight:700}
 /* Filter bar */
-.filtres-bar{display:flex;flex-wrap:nowrap;gap:0.75rem;justify-content:center;margin-bottom:2.5rem}
+.filtres-bar{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-bottom:2.5rem}
 .filtre-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.65rem 1.4rem;border:2px solid var(--border);border-radius:50px;background:var(--white);color:var(--text-light);font-family:var(--font-body);font-size:0.97rem;font-weight:700;cursor:pointer;transition:all var(--transition)}
 .filtre-btn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light)}
 .filtre-btn.active{background:var(--primary);border-color:var(--primary);color:var(--white)}
@@ -578,8 +578,8 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:3
 /* Titre histoire sur la page Qui sommes-nous */
 .histoire-title{white-space:nowrap}
 
-/* Filtres formations – une seule ligne, texte non coupé */
-.filtre-btn{white-space:nowrap;flex-shrink:0}
+/* Filtres formations – texte non coupé, retour à la ligne si nécessaire */
+.filtre-btn{white-space:nowrap}
 
 /* Lien étude – « Une étude récente confirme… » */
 #etude-toggle-btn{white-space:nowrap}
