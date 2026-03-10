@@ -93,17 +93,20 @@ function initMobileMenu() {
  const isOpen = links.classList.toggle('open');
  toggle.setAttribute('aria-expanded', isOpen);
  toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+ document.body.style.overflow = isOpen ? 'hidden' : '';
  });
  links.querySelectorAll('a').forEach(a => {
  a.addEventListener('click', () => {
  links.classList.remove('open');
  toggle.setAttribute('aria-expanded', 'false');
+ document.body.style.overflow = '';
  });
  });
  document.addEventListener('click', (e) => {
  if (!e.target.closest('#site-header')) {
  links.classList.remove('open');
  toggle.setAttribute('aria-expanded', 'false');
+ document.body.style.overflow = '';
  }
  });
 }
@@ -464,6 +467,12 @@ function initVideoModal() {
  const inner     = overlay.querySelector('.video-modal-inner');
  const closeBtn  = overlay.querySelector('.video-modal-close');
  function openModal(vimeoId, ratio) {
+ /* Pause all testimonial Vimeo iframes before opening the modal */
+ document.querySelectorAll('iframe[src*="vimeo.com"]').forEach(function(el) {
+  if (el.id !== 'vimeo-modal-iframe') {
+   try { el.contentWindow.postMessage('{"method":"pause"}', '*'); } catch(e) {}
+  }
+ });
  const isPortrait = ratio === '9/16';
  inner.style.maxWidth = isPortrait ? 'min(400px,90vw)' : 'min(860px,95vw)';
  ratioWrap.style.paddingBottom = isPortrait ? '177.78%' : '56.25%';
@@ -530,17 +539,6 @@ function initTogglePanel(btnId, panelId) {
    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
   }
  });
-}
-function initHeroNav() {
- if (!document.body.classList.contains('has-video-hero')) return;
- const header = document.getElementById('site-header');
- const hero   = document.querySelector('.hero');
- if (!header || !hero) return;
- function update() {
-  header.classList.toggle('nav-solid', window.scrollY > hero.offsetHeight * 0.75);
- }
- window.addEventListener('scroll', update, { passive: true });
- update();
 }
 function initPostalCodeLookup() {
  const cpInput = document.getElementById('code-postal');
@@ -633,14 +631,24 @@ function initSingleVideoPlayback() {
  }
 }
 function fixFrenchPunctuation() {
- const walker = document.createTreeWalker(
+ var cache = new Map();
+ var walker = document.createTreeWalker(
   document.body, NodeFilter.SHOW_TEXT, null
  );
- let node;
+ var node;
  while ((node = walker.nextNode())) {
-  const parent = node.parentElement;
-  if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE')) continue;
-  const fixed = node.textContent.replace(/ ([;:!?])/g, '\u00A0$1');
+  var parent = node.parentElement;
+  if (!parent) continue;
+  if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') continue;
+  var skip;
+  if (cache.has(parent)) { skip = cache.get(parent); }
+  else {
+   var font = window.getComputedStyle(parent).fontFamily;
+   skip = font.indexOf('Gotham Rounded') !== -1;
+   cache.set(parent, skip);
+  }
+  if (skip) continue;
+  var fixed = node.textContent.replace(/ ([;:!?])/g, '\u00A0$1');
   if (fixed !== node.textContent) node.textContent = fixed;
  }
 }
@@ -693,7 +701,6 @@ document.addEventListener('DOMContentLoaded', () => {
  initCounters();
  initVideoModal();
  initSingleVideoPlayback();
- initHeroNav();
  initHeroVideos();
  buildBackToTop();
  if (document.getElementById('contact-form'))  { initContactForm(); initPostalCodeLookup(); }
@@ -702,5 +709,9 @@ document.addEventListener('DOMContentLoaded', () => {
  if (document.querySelector('.filtre-btn[data-filter]')) initFormationFilters();
  initTogglePanel('etude-toggle-btn', 'etude-pdf-panel');
  initTogglePanel('programme-toggle-btn', 'programme-pdf-panel');
+ if (document.fonts && document.fonts.ready) {
+ document.fonts.ready.then(fixFrenchPunctuation);
+ } else {
  fixFrenchPunctuation();
+ }
 });

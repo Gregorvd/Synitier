@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Découvrez Synitier, organisme de formation Qualiopi fondé sur la conviction que réparer a du sens. Notre équipe, nos valeurs et nos centres de formation partout en France.">
   <title>Synitier | Qui sommes-nous — Organisme de formation Qualiopi en mobilité légère</title>
+  <link rel="preload" href="assets/fonts/GothamRounded-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/GothamRounded-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Montserrat-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -27,10 +30,10 @@
          ========================================== -->
     <section class="hero-inner" aria-label="Qui sommes-nous">
       <div class="container">
-        <h1>Nous croyons que réparer a du sens</h1>
+        <h1>Nous croyons que <strong>réparer a du sens</strong></h1>
         <p>
-          Synitier est une équipe de formateurs virtuoses convaincus que transmettre un savoir-faire technique
-          peut changer un parcours de vie et contribuer à une mobilité plus durable.
+          Synitier est une équipe de formateurs virtuoses convaincus que <strong>transmettre un savoir-faire technique</strong>
+          peut changer un <strong>parcours de vie</strong> et contribuer à une <strong>mobilité plus durable</strong>.
         </p>
         <a href="contact.html" class="btn btn-primary btn-xl">
           Nous contacter pour parler de votre projet
@@ -44,11 +47,11 @@
     <section class="histoire-section" aria-label="Notre histoire">
       <div class="container">
         <h2 class="histoire-title fade-up">Histoire de se mettre en selle… et de bâtir un avenir durable</h2>
-        <h3 class="histoire-subtitle fade-up">Notre symbole : la chaîne</h3>
         <div class="histoire-content">
           <div class="histoire-text fade-up">
+            <div class="histoire-symbol">Notre symbole : la chaîne</div>
             <p>
-              Tout commence avec une chaîne. Maillon après maillon, elle relie les savoirs, les gestes et les personnes. Elle transmet la force, l'élan, le mouvement, tout comme l'apprentissage relie la théorie à la pratique, la technique à la passion.
+              Tout commence avec une chaîne, maillon après maillon, elle relie les savoirs, les gestes et les personnes. Elle transmet la force, l'élan, le mouvement, tout comme l'apprentissage relie la théorie à la pratique, la technique à la passion.
             </p>
             <p>
               En formation, on apprend à renforcer chaque maillon : comprendre le fonctionnement, répéter les gestes, partager les bonnes pratiques. Pas à pas, on gagne en assurance, on ajuste, on s'entraide. Jusqu'à ce que tout s'aligne, que le mouvement devienne fluide, et que la mécanique prenne tout son sens.
@@ -60,11 +63,13 @@
           <div class="histoire-visual fade-up">
             <img
               src="assets/images/sections/sebastien-travail-velo.webp"
+              srcset="assets/images/sections/sebastien-travail-velo-400w.webp 400w, assets/images/sections/sebastien-travail-velo-800w.webp 800w, assets/images/sections/sebastien-travail-velo.webp 1200w"
+              sizes="(max-width:1024px) 100vw, 50vw"
               alt="Formateur Synitier au travail sur un vélo dans l'atelier"
               width="600"
               height="430"
               loading="lazy"
-            >
+           >
           </div>
         </div>
         <p class="histoire-closing fade-up">
@@ -110,11 +115,10 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">L'équipe</span>
-          <h2>Les personnes derrière Synitier</h2>
-          <p>Une équipe soudée, entre experts de la mobilité et passionnés de la transmission</p>
+          <h2>Une équipe soudée, entre experts de la mobilité et passionnés de la transmission</h2>
         </div>
         <!-- Direction et administration -->
-        <p style="font-weight: 700; color: var(--text-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; text-align: center;">Direction et administration</p>
+        <p class="team-sub-label">Direction et administration</p>
         <div class="equipe-direction">
 
           <div class="team-card fade-up">
@@ -144,7 +148,7 @@
         </div>
 
         <!-- Formateurs -->
-        <p style="font-weight: 700; color: var(--text-light); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; text-align: center;">Formateurs</p>
+        <p class="team-sub-label">Formateurs</p>
         <div class="equipe-formateurs">
 
           <div class="team-card fade-up">
@@ -155,7 +159,7 @@
                 width="120"
                 height="120"
                 loading="lazy"
-              >
+             >
             </div>
             <h4><span class="fn">Sébastien</span> <span class="ln">CATSAROS</span></h4>
             <p>Formateur référent</p>
@@ -175,7 +179,7 @@
                 width="120"
                 height="120"
                 loading="lazy"
-              >
+             >
             </div>
             <h4><span class="fn">Silvain</span> <span class="ln">PINARD</span></h4>
             <p>Formateur</p>
@@ -202,31 +206,31 @@
         <div class="centres-grid">
           <div class="centre-item fade-up">
             <strong>Synitier Paris Vaugirard</strong>
-            <span>281 Rue de Vaugirard, 75015 Paris</span>
+            <span>281 Rue de Vaugirard<br>75015 Paris</span>
           </div>
           <div class="centre-item fade-up">
             <strong>Synitier Paris Montparnasse</strong>
-            <span>163 Avenue du Maine, 75014 Paris</span>
+            <span>163 Avenue du Maine<br>75014 Paris</span>
           </div>
           <div class="centre-item fade-up">
             <strong>Synitier Lyon Saxe</strong>
-            <span>43 Av. Maréchal de Saxe, 69006 Lyon</span>
+            <span>43 Av. Maréchal de Saxe<br>69006 Lyon</span>
           </div>
           <div class="centre-item fade-up">
             <strong>Synitier Lyon Lafayette</strong>
-            <span>6 Cours Lafayette, 69003 Lyon</span>
+            <span>6 Cours Lafayette<br>69003 Lyon</span>
           </div>
           <div class="centre-item fade-up">
             <strong>Synitier Lille</strong>
-            <span>13 Pl. Pierre Mendès France, 59800 Lille</span>
+            <span>13 Pl. Pierre Mendès France<br>59800 Lille</span>
           </div>
           <div class="centre-item fade-up">
             <strong>Synitier Marseille</strong>
-            <span>31 Rue de la République, 13002 Marseille</span>
+            <span>31 Rue de la République<br>13002 Marseille</span>
           </div>
           <div class="centre-item fade-up">
             <strong>Synitier Montpellier Est</strong>
-            <span>125 Rue Alfred Sauvy, 34470 Pérols</span>
+            <span>125 Rue Alfred Sauvy<br>34470 Pérols</span>
           </div>
         </div>
       </div>
