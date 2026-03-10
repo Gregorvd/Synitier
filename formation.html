@@ -15,6 +15,15 @@
   <link rel="preload" href="assets/fonts/GothamRounded-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Montserrat-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style2.css">
+  <style>
+    /* Fix mobile iOS – inline pour contourner tout cache */
+    @media(max-width:768px){
+      .fcard-cat{flex-direction:column!important}
+      .fcard-cat-media{height:180px!important;max-height:180px!important;overflow:hidden!important;flex:none!important;width:100%!important}
+      .fcard-cat-media img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+      .fcard-cat-body{display:flex!important;flex-direction:column!important;flex:none!important;width:100%!important}
+    }
+  </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
