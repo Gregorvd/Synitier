@@ -601,8 +601,8 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:3
 /* Centres – nom sur une seule ligne */
 .centre-item strong{white-space:nowrap}
 
-/* Titre histoire sur la page Qui sommes-nous */
-.histoire-title{white-space:nowrap}
+/* Titre histoire sur la page Qui sommes-nous – nowrap uniquement sur grand écran */
+@media(min-width:769px){.histoire-title{white-space:nowrap}}
 
 /* Lien étude – « Une étude récente confirme… » */
 #etude-toggle-btn{white-space:normal}
