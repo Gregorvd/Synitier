@@ -194,7 +194,7 @@
 .financement-icon{font-size:1.6rem}
 @media(max-width:1024px){.detail-layout{grid-template-columns:1fr}.detail-sidebar{position:static}}
 @media(max-width:768px){.quick-facts{grid-template-columns:repeat(2,1fr)}.quick-fact:not(:last-child){border-right:none;border-bottom:1px solid var(--border);padding-bottom:0.75rem}.catalogue-grid{grid-template-columns:1fr}.fcard-cat-meta{gap:0.75rem}}
-@media(max-width:480px){.filtres-bar{gap:0.5rem}.filtre-btn{padding:0.55rem 1rem;font-size:0.88rem}}
+@media(max-width:480px){.filtres-bar{flex-wrap:wrap;gap:0.4rem;overflow-x:visible}.filtre-btn{padding:0.4rem 0.75rem;font-size:0.8rem}}
 /* Cartes catalogue en ligne (horizontales) */
 .catalogue-grid{grid-template-columns:1fr;gap:1.25rem}
 .filtres-bar{margin-bottom:1.5rem}
@@ -579,21 +579,13 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:3
 .histoire-title{white-space:nowrap}
 
 /* Lien étude – « Une étude récente confirme… » */
-#etude-toggle-btn{white-space:nowrap}
+#etude-toggle-btn{white-space:normal}
 
-/* Titre « Véhicules et équipements couverts » */
-.section-detail[aria-label*="rimètre"] h2{white-space:nowrap}
+/* Véhicules tags */
+.vehicule-tags{flex-wrap:wrap}
 
-/* Véhicules tags – une seule ligne */
-.vehicule-tags{flex-wrap:nowrap}
-.vehicule-tag{flex-shrink:0}
-
-/* Logo Qualiopi dans le section-tag — inline + même ligne */
+/* Logo Qualiopi dans le section-tag — inline */
 .qualiopi-tag-img{display:inline}
-.section-tag.white{white-space:nowrap}
-
-/* « Peu importe votre point de départ… » sur une ligne */
-.public-section .section-header p{white-space:nowrap}
 
 /* Objectifs pédagogiques – supprimer l'encadré blanc, garder uniquement le bleu */
 .section-detail[aria-label*="bjectifs"]{background:transparent;padding:0;box-shadow:none;border:none}
