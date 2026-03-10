@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Découvrez les formations Synitier pour devenir technicien réparateur en mobilité légère. RS 5565, RS 6802 ou Titre Professionnel Niveau 4 : choisissez le parcours qui correspond à votre projet.">
   <title>Synitier | Nos formations en mobilité légère et urbaine</title>
+  <link rel="preload" href="assets/fonts/GothamRounded-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/GothamRounded-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Montserrat-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -24,8 +27,8 @@
          ========================================== -->
     <section class="hero-inner" aria-label="Nos formations">
       <div class="container">
-        <span class="section-tag white" style="display:inline-flex;align-items:center;gap:0.5rem;">Organisme certifié Qualiopi <img src="assets/images/icones/logo-qualiopi.png" alt="Logo Qualiopi" style="height:1.4em;width:auto;vertical-align:middle;border-radius:2px;background:white;padding:1px 3px;"></span>
-        <h1 style="margin:0 auto 1rem;">Nos formations</h1>
+        <span class="section-tag white">Organisme certifié Qualiopi <img src="assets/images/icones/logo-qualiopi.png" alt="Logo Qualiopi" class="qualiopi-tag-img"></span>
+        <h1>Nos formations</h1>
         <p>Trois parcours adaptés à votre niveau et à votre projet professionnel.</p>
         <a href="contact.html" class="btn btn-primary btn-xl">Nous contacter pour parler de votre projet</a>
       </div>
@@ -34,7 +37,7 @@
     <!-- ==========================================
          CATALOGUE DES FORMATIONS
          ========================================== -->
-    <section style="background:var(--off-white);padding:2rem 0 3rem;" aria-label="Catalogue des formations">
+    <section class="section-offwhite" style="padding-bottom:3rem;" aria-label="Catalogue des formations">
       <div class="container">
         <!-- Filtres -->
         <div class="filtres-bar" role="group" aria-label="Filtrer par type de véhicule">
@@ -49,11 +52,13 @@
         <div class="catalogue-grid">
 
           <!-- Formation Synitier : Titre Pro (en premier) -->
-          <article class="fcard-cat fade-up" data-tags="velo,vae,trottinette,batterie" aria-label="Parcours métier : Technicien Réparateur en Mobilité Légère" style="position:relative;">
+          <article class="fcard-cat fade-up" data-tags="velo,vae,trottinette,batterie" aria-label="Parcours métier : Technicien Réparateur en Mobilité Légère">
             <!-- Badge haut droite de la carte -->
-            <div style="position:absolute;top:1rem;right:1rem;z-index:10;background:var(--cta);color:white;font-weight:800;font-size:0.8rem;padding:0.35rem 1rem;border-radius:50px;box-shadow:0 2px 8px rgba(0,0,0,0.25);">⭐ La plus choisie</div>
+            <div class="fcard-cat-badge-top">⭐ La plus choisie</div>
             <div class="fcard-cat-media">
               <img src="assets/images/hero/atelier.webp"
+                   srcset="assets/images/hero/atelier-400w.webp 400w, assets/images/hero/atelier-800w.webp 800w, assets/images/hero/atelier.webp 1200w"
+                   sizes="(max-width:600px) 100vw, (max-width:1024px) 50vw, 33vw"
                    alt="Technicien en atelier de mobilité légère Synitier"
                    loading="lazy" width="600" height="400">
               <div class="fcard-cat-overlay"></div>
@@ -65,7 +70,7 @@
               </div>
             </div>
             <div class="fcard-cat-body">
-              <span class="fcard-cat-level" style="background:var(--cta);color:var(--white);">Parcours métier</span>
+              <span class="fcard-cat-level fcard-cat-level--featured">Parcours métier</span>
               <h3>Technicien Réparateur en Mobilité Légère et Urbaine - Vélos, Vélos à Assistance Électrique (VAE) et Trottinettes Électriques</h3>
               <p>La formation la plus complète du catalogue. Du geste technique en atelier à la gestion d'activité : tout ce qu'il faut pour exercer le métier ou même se lancer à son compte.</p>
               <div class="fcard-cat-meta">
@@ -81,6 +86,8 @@
           <article class="fcard-cat fade-up" data-tags="velo" aria-label="CCP RNCP 35992 : TP - Employé technicien-vendeur en matériel de sport">
             <div class="fcard-cat-media">
               <img src="assets/images/sections/formation-rncp.webp"
+                   srcset="assets/images/sections/formation-rncp-400w.webp 400w, assets/images/sections/formation-rncp-800w.webp 800w, assets/images/sections/formation-rncp.webp 1200w"
+                   sizes="(max-width:600px) 100vw, (max-width:1024px) 50vw, 33vw"
                    alt="Formation RNCP 35992 – préparation et réparation de cycles en atelier Synitier"
                    loading="lazy" width="600" height="400">
               <div class="fcard-cat-overlay"></div>
@@ -91,10 +98,10 @@
             <div class="fcard-cat-body">
               <span class="fcard-cat-level">RNCP 35992</span>
               <h3>TP - Employé technicien-vendeur en matériel de sport</h3>
-              <p>Maîtrisez les gestes techniques des réparations courantes sur les vélos mécaniques et les VAE : diagnostic, réparations courantes, préparation à la vente et gestion d'atelier. Un titre professionnel.</p>
+              <p>Maîtrisez les gestes techniques des réparations courantes sur les vélos mécaniques et les vélos à assistance électrique : diagnostic, réparations courantes, préparation à la vente et gestion d'atelier. Un titre professionnel.</p>
               <div class="fcard-cat-meta">
-                <div class="fcard-cat-meta-item">⏱ <strong>125 h</strong>&nbsp;de formation</div>
-                <div class="fcard-cat-meta-item">💶 <strong>3 700 €</strong></div>
+                <div class="fcard-cat-meta-item">⏱ <strong>160 h</strong>&nbsp;de formation</div>
+                <div class="fcard-cat-meta-item">💶 <strong>3 990 €</strong></div>
                 <div class="fcard-cat-meta-item">📍 En présentiel en atelier</div>
               </div>
               <a href="formation-mecanique-electrique.html" class="btn btn-outline-primary">Découvrir cette formation →</a>
@@ -105,7 +112,9 @@
           <article class="fcard-cat fade-up" data-tags="vae,trottinette" aria-label="T-VAE : Certification RS 6802">
             <div class="fcard-cat-media">
               <img src="assets/images/sections/partie-electrique.webp"
-                   alt="Technicien travaillant sur un système électrique de VAE"
+                   srcset="assets/images/sections/partie-electrique-400w.webp 400w, assets/images/sections/partie-electrique-800w.webp 800w, assets/images/sections/partie-electrique.webp 1200w"
+                   sizes="(max-width:600px) 100vw, (max-width:1024px) 50vw, 33vw"
+                   alt="Technicien travaillant sur un système électrique de vélo à assistance électrique"
                    loading="lazy" width="600" height="400">
               <div class="fcard-cat-overlay"></div>
               <div class="fcard-cat-badges">
@@ -115,7 +124,7 @@
             </div>
             <div class="fcard-cat-body">
               <span class="fcard-cat-level">RS 6802</span>
-              <h3>T-VAE : Entretien et réparations électriques et électrification des VAE et trottinettes</h3>
+              <h3>T-VAE : Entretien et réparations électriques et électrification des vélos à assistance électrique et trottinettes</h3>
               <p>Maîtrisez le diagnostic électrique, le remplacement de composants et l'électrification de vélos musculaires et trottinettes électriques. Un parcours spécialisé, directement orienté vers les besoins du marché.</p>
               <div class="fcard-cat-meta">
                 <div class="fcard-cat-meta-item">⏱ <strong>120 h</strong>&nbsp;de formation</div>
@@ -129,12 +138,12 @@
         </div>
 
         <!-- Note de financement -->
-        <div style="text-align:center;margin-top:2.5rem;background:var(--white);border-radius:var(--radius-lg);padding:1.75rem 2rem;border:2px solid var(--border);">
-          <p style="color:var(--text-light);font-size:0.97rem;margin:0;">
+        <div class="financement-note">
+          <p>
             💡 Toutes nos formations peuvent être financées par <strong style="color:var(--primary);">France Travail</strong>,
             <strong style="color:var(--primary);">le CPF</strong>, un <strong style="color:var(--primary);">OPCO</strong>
             ou votre <strong style="color:var(--primary);">employeur</strong>.
-            <a href="contact.html" style="color:var(--cta);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Parlons de votre situation →</a>
+            <a href="contact.html" class="link-cta">Parlons de votre situation →</a>
           </p>
         </div>
       </div>
@@ -164,37 +173,39 @@
               et les ateliers qui savent vous accueillir après la formation sont déjà là.
             </p>
             <p>
-              <a href="assets/documents/ETUDE Observatoire de l'emploi velo_Optimized.pdf"
+              <a href="assets/documents/etude-observatoire-emploi-velo.pdf"
                  class="context-link"
                  id="etude-toggle-btn"
                  aria-expanded="false"
                  aria-controls="etude-pdf-panel">
                 Une étude récente confirme que le secteur du vélo recrute fortement.
-                <svg class="study-chevron" style="width:14px;height:14px;vertical-align:middle;margin-left:6px;display:inline-block;transition:transform 0.3s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
+                <svg class="study-chevron toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg>
               </a>
             </p>
           </div>
           <div class="context-visual fade-up">
             <img
               src="assets/images/sections/pourquoi-ce-metier.webp"
+              srcset="assets/images/sections/pourquoi-ce-metier-400w.webp 400w, assets/images/sections/pourquoi-ce-metier-800w.webp 800w, assets/images/sections/pourquoi-ce-metier.webp 1200w"
+              sizes="(max-width:1024px) 100vw, 50vw"
               alt="Technicien Synitier au travail dans son atelier de réparation"
               width="600" height="420" loading="lazy">
           </div>
         </div>
 
         <!-- Lecteur PDF — s'affiche sous le texte ET la photo, pleine largeur -->
-        <div id="etude-pdf-panel" style="display:none;margin-top:2.5rem;">
+        <div id="etude-pdf-panel" class="pdf-panel" style="margin-top:2.5rem;">
           <iframe
-            data-src="assets/documents/ETUDE Observatoire de l'emploi velo_Optimized.pdf"
+            data-src="assets/documents/etude-observatoire-emploi-velo.pdf"
             width="100%"
             height="700"
-            style="display:block;width:100%;border:2px solid #e8eaf0;border-radius:16px;box-shadow:0 4px 24px rgba(41,56,132,0.12);"
+            class="pdf-iframe"
             title="Étude Observatoire de l'emploi vélo"
             aria-label="Étude Observatoire de l'emploi vélo (PDF)"
-          ></iframe>
-          <p style="text-align:center;margin-top:1rem;color:#637085;font-size:0.875rem;">
+         ></iframe>
+          <p class="pdf-fallback">
             Si le document ne s'affiche pas,
-            <a href="assets/documents/ETUDE Observatoire de l'emploi velo_Optimized.pdf" download style="color:#293884;font-weight:700;text-decoration:underline;text-underline-offset:3px;">téléchargez l'étude (PDF)</a>.
+            <a href="assets/documents/etude-observatoire-emploi-velo.pdf" download class="link-cta">téléchargez l'étude (PDF)</a>.
           </p>
         </div>
 

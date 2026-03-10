@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Découvrez les témoignages d'apprenants Synitier et les chiffres clés de notre organisme de formation en mobilité légère. Certifié Qualiopi.">
   <title>Synitier | Témoignages de nos apprenants — Formation mobilité légère</title>
+  <link rel="preload" href="assets/fonts/GothamRounded-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/GothamRounded-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Montserrat-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -28,9 +31,9 @@
         <source src="assets/video/temoignage-synitier.mp4" type="video/mp4">
       </video>
       <div class="container">
-        <h1>Ceux qui ont choisi Synitier</h1>
+        <h1>Ceux qui ont choisi <strong>Synitier</strong></h1>
         <p>
-          Des chiffres concrets et des témoignages authentiques pour vous aider à vous projeter.
+          Des <strong>chiffres</strong> concrets et des <strong>témoignages</strong> authentiques pour vous aider à vous projeter.
         </p>
       </div>
     </section>
@@ -74,7 +77,7 @@
         </div>
 
         <!-- Témoignages apprenants -->
-        <div class="section-header" style="margin-top:1rem;">
+        <div class="section-header">
           <h3>Témoignages apprenants</h3>
           <p>Ils ont choisi Synitier pour se former&nbsp;: voici leur expérience</p>
         </div>
@@ -92,7 +95,7 @@
                 style="position:absolute;inset:0;width:100%;height:100%;border:none;"
                 title="Témoignage Adrien"
                 loading="lazy"
-              ></iframe>
+             ></iframe>
             </div>
             <div class="temoignage-body">
               <strong>Adrien</strong>
@@ -111,7 +114,7 @@
                 style="position:absolute;inset:0;width:100%;height:100%;border:none;"
                 title="Témoignage Pierre"
                 loading="lazy"
-              ></iframe>
+             ></iframe>
             </div>
             <div class="temoignage-body">
               <strong>Pierre</strong>
@@ -120,8 +123,8 @@
           </article>
 
           <!-- Témoignage 3 : placeholder -->
-          <article class="temoignage-card fade-up" style="opacity: 0.7; cursor: default;" aria-label="Témoignage à venir">
-            <div class="temoignage-thumb" style="background: var(--primary-dark);">
+          <article class="temoignage-card fade-up" style="opacity:0.7;cursor:default;" aria-label="Témoignage à venir">
+            <div class="temoignage-thumb">
               <div class="temoignage-play" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
               </div>
@@ -133,8 +136,8 @@
           </article>
 
           <!-- Témoignage 4 : placeholder -->
-          <article class="temoignage-card fade-up" style="opacity: 0.7; cursor: default;" aria-label="Témoignage à venir">
-            <div class="temoignage-thumb" style="background: var(--primary-dark);">
+          <article class="temoignage-card fade-up" style="opacity:0.7;cursor:default;" aria-label="Témoignage à venir">
+            <div class="temoignage-thumb">
               <div class="temoignage-play" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
               </div>
@@ -148,20 +151,21 @@
         </div>
 
         <!-- Vidéos formateur + responsable (côte à côte) -->
-        <div class="video-duo" style="margin-top:3rem;">
+        <div class="video-duo">
           <div class="video-main-wrap fade-up">
             <p class="video-main-label">Le mot du formateur</p>
-            <div class="video-click-trigger"
+            <div class="video-click-trigger video-trigger"
               data-vimeo-id="1168173606"
               data-vimeo-ratio="9/16"
               role="button" tabindex="0"
-              aria-label="Regarder la présentation de Sébastien, formateur référent"
-              style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;">
+              aria-label="Regarder la présentation de Sébastien, formateur référent">
               <img src="assets/images/sections/sebastien-travail-velo.webp"
+                srcset="assets/images/sections/sebastien-travail-velo-400w.webp 400w, assets/images/sections/sebastien-travail-velo-800w.webp 800w, assets/images/sections/sebastien-travail-velo.webp 1200w"
+                sizes="(max-width:768px) 100vw, 50vw"
                 alt="" aria-hidden="true" loading="lazy"
-                style="width:100%;height:100%;object-fit:cover;display:block;">
-              <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
-                <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+                class="video-trigger-img">
+              <div class="video-overlay">
+                <div class="video-play-circle">
                   <svg viewBox="0 0 24 24" fill="#293884" width="26" height="26" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
                 </div>
               </div>
@@ -170,17 +174,18 @@
 
           <div class="video-main-wrap fade-up">
             <p class="video-main-label">Le mot du responsable</p>
-            <div class="video-click-trigger"
+            <div class="video-click-trigger video-trigger"
               data-vimeo-id="1168173759"
               data-vimeo-ratio="16/9"
               role="button" tabindex="0"
-              aria-label="Regarder la présentation du responsable de formation"
-              style="cursor:pointer;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;">
+              aria-label="Regarder la présentation du responsable de formation">
               <img src="assets/images/sections/vignette-presentation-formation.webp"
+                srcset="assets/images/sections/vignette-presentation-formation-400w.webp 400w, assets/images/sections/vignette-presentation-formation-800w.webp 800w, assets/images/sections/vignette-presentation-formation.webp 1200w"
+                sizes="(max-width:768px) 100vw, 50vw"
                 alt="" aria-hidden="true" loading="lazy"
-                style="width:100%;height:100%;object-fit:cover;display:block;">
-              <div style="position:absolute;inset:0;background:rgba(26,37,96,0.45);display:flex;align-items:center;justify-content:center;">
-                <div style="width:64px;height:64px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+                class="video-trigger-img">
+              <div class="video-overlay">
+                <div class="video-play-circle">
                   <svg viewBox="0 0 24 24" fill="#293884" width="26" height="26" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
                 </div>
               </div>

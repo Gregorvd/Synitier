@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contactez Synitier pour parler de votre projet de formation. Réponse sous 24h. Paris, Lyon, Lille, Marseille, Montpellier.">
   <title>Synitier | Contactez-nous — Formation mobilité légère et urbaine</title>
+  <link rel="preload" href="assets/fonts/GothamRounded-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/GothamRounded-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Montserrat-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -25,14 +28,14 @@
          ========================================== -->
     <section class="hero-inner" aria-label="Page de contact">
       <div class="container">
-        <h1>Nous contacter pour parler de votre projet</h1>
+        <h1>Nous contacter pour parler de <strong>votre projet</strong></h1>
       </div>
     </section>
 
     <!-- ==========================================
          FORMULAIRE + COORDONNEES
          ========================================== -->
-    <section style="background: var(--off-white); padding: 4rem 0;" aria-label="Formulaire de contact">
+    <section class="section-offwhite" aria-label="Formulaire de contact">
       <div class="container">
         <div class="contact-wrapper">
 
@@ -66,7 +69,7 @@
                     autocomplete="given-name"
                     placeholder="Votre prénom"
                     aria-required="true"
-                  >
+                 >
                 </div>
 
                 <div class="form-group">
@@ -79,7 +82,7 @@
                     autocomplete="family-name"
                     placeholder="Votre nom"
                     aria-required="true"
-                  >
+                 >
                 </div>
 
                 <div class="form-group">
@@ -92,7 +95,7 @@
                     autocomplete="tel"
                     placeholder="06 xx xx xx xx"
                     aria-required="true"
-                  >
+                 >
                 </div>
 
                 <div class="form-group">
@@ -105,7 +108,7 @@
                     autocomplete="email"
                     placeholder="votre@email.fr"
                     aria-required="true"
-                  >
+                 >
                 </div>
 
                 <div class="form-group">
@@ -134,7 +137,7 @@
                     placeholder="75015"
                     autocomplete="postal-code"
                     aria-required="true"
-                  >
+                 >
                 </div>
 
                 <div class="form-group" id="ville-group" style="display:none;">
@@ -151,18 +154,18 @@
                     name="message"
                     placeholder="Parlez-nous de votre projet, de vos questions, de votre disponibilité... On lit tout avec attention."
                     aria-label="Message optionnel"
-                  ></textarea>
+                 ></textarea>
                 </div>
 
               </div>
 
               <!-- RGPD consent -->
-              <label class="rgpd-consent-row" id="rgpd-row" style="margin-top:0.75rem;">
+              <label class="rgpd-consent-row" id="rgpd-row">
                 <input type="checkbox" id="rgpd-consent" name="rgpd_consent" required aria-required="true" class="custom-check">
                 <span>J'accepte que mes données soient utilisées pour traiter ma demande. <a href="mentions-legales.html#rgpd" target="_blank" rel="noopener">En savoir plus</a></span>
               </label>
 
-              <p class="form-note" style="margin: 0.75rem 0 1.5rem;">
+              <p class="form-note">
                 <span aria-hidden="true">*</span> Champs obligatoires.
               </p>
 
@@ -181,7 +184,7 @@
             <div id="form-success" class="form-success" role="alert" aria-live="polite">
               <p style="font-size: 1.5rem; margin-bottom: 0.75rem;">🎉</p>
               <p>Merci, nous vous recontactons sous 24h.</p>
-              <p style="font-weight: 400; font-size: 0.95rem; margin-top: 0.5rem; color: #065f46;">
+              <p class="form-success-detail">
                 Notre équipe a bien reçu votre message et revient vers vous rapidement.
               </p>
             </div>
@@ -224,12 +227,12 @@
               </div>
             </div>
 
-            <hr style="border: none; border-top: 1px solid var(--border); margin: 2rem 0;">
+            <hr class="contact-hr">
 
-            <p style="color: var(--text-light); font-size: 0.9rem; text-align: center;">
+            <p class="detail-desc" style="font-size:0.9rem;text-align:center;">
               Organisme certifié Qualiopi
             </p>
-            <a href="certificat-qualiopi.html" class="qualiopi-logo" style="display: block; margin: 0.75rem auto 0; width: fit-content;" aria-label="Voir le certificat Qualiopi">
+            <a href="certificat-qualiopi.html" class="qualiopi-logo"  aria-label="Voir le certificat Qualiopi">
               <img src="assets/images/icones/logo-qualiopi.png" alt="Logo Qualiopi" width="130" height="52" loading="lazy">
             </a>
 
