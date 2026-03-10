@@ -345,11 +345,10 @@ a.public-card{text-decoration:none;color:inherit;cursor:pointer;display:flex;}
 /* Base overflow protection */
 html,body{overflow-x:hidden}
 .page-content{overflow-x:hidden}
-section{overflow-x:hidden}
 img,video,iframe{max-width:100%}
 
-/* Global – tighter side padding, less white space */
-.container{padding:0 0.75rem}
+/* Global – balanced side padding */
+.container{padding:0 1rem}
 section{padding-top:2rem;padding-bottom:2rem}
 .section-header{margin-bottom:1.25rem}
 .section-header h2{font-size:1.4rem}
@@ -364,11 +363,11 @@ section{padding-top:2rem;padding-bottom:2rem}
 .menu-toggle{margin-right:0;flex-shrink:0}
 
 /* Hero inner banners – auto height, no clipping */
-.hero-inner{height:auto;min-height:unset;padding:2.5rem 0.75rem 1.75rem}
+.hero-inner{height:auto;min-height:unset;padding:2.5rem 1rem 1.75rem}
 .hero-inner h1{font-size:clamp(1.35rem,5vw,1.9rem);line-height:1.25}
 .hero-inner p{font-size:0.95rem;margin-bottom:1.5rem}
 .hero-video-bg{min-height:80vh;height:auto}
-.hero-video-bg>.container{padding:0 0.75rem}
+.hero-video-bg>.container{padding:0 1rem}
 
 /* Text wrapping */
 .contact-info-box h3{white-space:normal;text-align:center}
@@ -392,27 +391,27 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:4
 .form-group input,.form-group select,.form-group textarea{width:100%;max-width:100%}
 .contact-info-box{padding:1.5rem 1.25rem;margin-top:1.5rem}
 
-/* Formation catalogue cards – vertical layout, wider */
-.fcard-cat{flex-direction:column;width:100%}
+/* Formation catalogue cards – vertical layout, centered */
+.fcard-cat{flex-direction:column;width:100%;border-radius:var(--radius)}
 .fcard-cat-media{flex:none;width:100%;height:180px;min-height:unset}
-.fcard-cat-body{flex:none;width:100%;padding:1.25rem 1.5rem}
+.fcard-cat-body{flex:none;width:100%;padding:1.25rem}
 .fcard-cat-body h3{font-size:1.05rem;line-height:1.35}
 .fcard-cat-body p{font-size:0.92rem}
 .fcard-cat-meta{flex-wrap:wrap;gap:0.5rem}
-.fcard-cat .btn{width:100%;text-align:center}
+.fcard-cat .btn{width:100%;text-align:center;align-self:center}
 
 /* Quick facts */
 .quick-facts{grid-template-columns:repeat(3,1fr);padding:1rem}
 
 /* Formation detail pages */
-.section-detail{padding:1.25rem 1rem;margin-bottom:0.5rem;border-radius:var(--radius)}
+.section-detail{padding:1.25rem;margin-bottom:0.5rem;border-radius:var(--radius)}
 .section-detail h2{font-size:1.15rem}
 .quick-facts-card{border-radius:var(--radius)}
-.resume-block{padding:1.25rem 0.75rem;border-radius:var(--radius);margin:1.25rem 0}
+.resume-block{padding:1.25rem 1rem;border-radius:var(--radius);margin:1.25rem 0}
 .resume-list{grid-template-columns:1fr}
 /* Pour qui → Objectifs : reduce gap between sections */
 .section-detail[aria-label*="ublic"]{margin-bottom:0.5rem;padding-bottom:1.25rem}
-.objectifs-block{padding:0.5rem 0.4rem;margin:0}
+.objectifs-block{padding:1rem 0.85rem;margin:0}
 .section-detail[aria-label*="bjectifs"]{padding-top:0.4rem;padding-bottom:0.25rem;margin-top:0;margin-bottom:0.4rem}
 .section-detail[aria-label*="bjectifs"] h2{margin-bottom:0.3rem;font-size:1.05rem}
 .section-detail[aria-label*="bjectifs"] .section-tag{margin-bottom:0.3rem}
@@ -424,8 +423,8 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:4
 .debouches-detail-grid{grid-template-columns:1fr}
 
 /* Accordion */
-.accordion-btn{padding:0.85rem 0.75rem;font-size:0.92rem}
-.accordion-inner{padding:1rem 0.75rem}
+.accordion-btn{padding:0.85rem 1rem;font-size:0.92rem}
+.accordion-inner{padding:1rem}
 /* Inline 2-col grids in formation detail (Jury/Continu etc.) */
 .section-detail .jury-continu-grid{grid-template-columns:1fr}
 
@@ -471,7 +470,7 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:4
 .filtres-bar{gap:0.35rem;margin-bottom:1rem;justify-content:center}
 
 /* Périmètre – compact on mobile */
-.section-detail[aria-label*="rimètre"]{padding:1rem 0.75rem;margin-bottom:1rem}
+.section-detail[aria-label*="rimètre"]{padding:1.25rem;margin-bottom:1rem}
 .section-detail[aria-label*="rimètre"] .section-tag{display:none}
 .section-detail[aria-label*="rimètre"] h2{font-size:1rem;margin-bottom:0.6rem}
 .section-detail[aria-label*="rimètre"] .vehicule-tags{gap:0.35rem}
@@ -511,8 +510,14 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:4
 .contact-info-box{margin-top:0.75rem;padding:1.25rem 1rem}
 .contact-info-box h3{font-size:1.05rem;margin-bottom:0.6rem}
 
-/* Formation card body – wider */
-.fcard-cat-body{padding:1.25rem 1.5rem}
+/* Formation card body */
+.fcard-cat-body{padding:1.25rem}
+
+/* Financement note – balanced padding */
+.financement-note{padding:1.25rem 1rem}
+
+/* CTA buttons – explicit centering */
+.cta-section .btn{display:block;margin-left:auto;margin-right:auto}
 
 /* Pills – 2 lines on mobile */
 .intro-pills{gap:0.35rem;flex-wrap:wrap}
@@ -528,20 +533,22 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:4
    ======================================================== */
 @media(max-width:480px){
 .nav-logo-img{height:30px}
-.container{padding:0 0.5rem}
-.hero-inner{padding:2rem 0.5rem 1.5rem}
+.container{padding:0 0.75rem}
+.hero-inner{padding:2rem 0.75rem 1.5rem}
 .hero-inner h1{font-size:1.25rem}
 .hero-inner p{font-size:0.88rem}
 .nav-inner{padding:0.8rem 0.75rem}
 .quick-facts{grid-template-columns:repeat(2,1fr)}
 .equipe-direction .team-card,.equipe-formateurs .team-card{width:130px}
+.fcard-cat{border-radius:12px}
 .fcard-cat .fcard-cat-media{flex:0 0 100%;width:100%}
 .fcard-cat-media{height:160px}
 .fcard-cat-body{padding:1rem}
 .fcard-cat-body h3{font-size:0.95rem}
 .contact-info-box{padding:1.25rem 1rem}
-.section-detail{padding:1.25rem 0.85rem;border-radius:12px}
+.section-detail{padding:1rem;border-radius:12px}
 .quick-facts-card{border-radius:12px}
+.objectifs-block{padding:0.85rem 0.75rem}
 #map{height:260px}
 .btn-xl{padding:0.85rem 1.25rem;font-size:0.88rem}
 .resume-block{padding:1.25rem 0.75rem}
@@ -562,16 +569,18 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:3
    COMPREHENSIVE MOBILE – 360px
    ======================================================== */
 @media(max-width:360px){
-.container{padding:0 0.4rem}
-.hero-inner{padding:1.75rem 0.4rem 1.25rem}
+.container{padding:0 0.5rem}
+.hero-inner{padding:1.75rem 0.5rem 1.25rem}
 .hero-inner h1{font-size:1.15rem}
 .hero-inner p{font-size:0.84rem}
 .quick-facts{grid-template-columns:1fr}
-.section-detail{padding:1rem 0.6rem;border-radius:10px}
+.section-detail{padding:0.85rem;border-radius:10px}
 .quick-facts-card{border-radius:10px}
+.fcard-cat{border-radius:10px}
 .fcard-cat-body{padding:0.85rem}
 .fcard-cat-body h3{font-size:0.9rem}
 .fcard-cat-media{height:140px}
+.objectifs-block{padding:0.75rem 0.6rem}
 .btn-xl{padding:0.75rem 1rem;font-size:0.84rem}
 .accordion-btn{padding:0.75rem 0.5rem;font-size:0.85rem}
 .accordion-inner{padding:0.85rem 0.5rem}

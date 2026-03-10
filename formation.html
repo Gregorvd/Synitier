@@ -16,14 +16,19 @@
   <link rel="preload" href="assets/fonts/Montserrat-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style2.css">
   <style>
-    /* Fix mobile iOS – inline pour contourner tout cache */
+    /* Fix mobile – cartes formations centrées */
     @media(max-width:768px){
-      .fcard-cat{flex-direction:column!important}
+      .fcard-cat{flex-direction:column!important;border-radius:16px!important}
       .fcard-cat-media{height:180px!important;max-height:180px!important;overflow:hidden!important;flex:none!important;width:100%!important}
       .fcard-cat-media img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
-      .fcard-cat-body{display:flex!important;flex-direction:column!important;flex:none!important;width:100%!important}
+      .fcard-cat-body{display:flex!important;flex-direction:column!important;flex:none!important;width:100%!important;padding:1.25rem!important}
+      .fcard-cat .btn{align-self:center!important}
       .fcard-cat-badge-top{display:none!important}
       .fcard-cat-badge-inline{display:inline-flex!important;align-items:center}
+    }
+    @media(max-width:480px){
+      .fcard-cat{border-radius:12px!important}
+      .fcard-cat-body{padding:1rem!important}
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
