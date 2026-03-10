@@ -44,7 +44,7 @@
 .fcard-cat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
 .fcard-cat[hidden]{display:none}
 .fcard-cat-media{position:relative;height:220px;overflow:hidden;background:var(--primary-dark)}
-.fcard-cat-media img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
+.fcard-cat-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
 .fcard-cat:hover .fcard-cat-media img{transform:scale(1.04)}
 .fcard-cat-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(26,37,96,0.55))}
 .fcard-cat-badges{position:absolute;top:1rem;left:1rem;display:flex;flex-wrap:wrap;gap:0.4rem}
