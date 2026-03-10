@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache-bust CSS and JS
+        run: |
+          SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c1-7)
+          echo "Version tag: $SHORT_SHA"
+          for f in *.html; do
+            # CSS – style2.css (et style.css au cas où)
+            sed -i "s|style2\.css\"|style2.css?v=$SHORT_SHA\"|g" "$f"
+            sed -i "s|style\.css\"|style.css?v=$SHORT_SHA\"|g" "$f"
+            # JS – script.js
+            sed -i "s|script\.js\"|script.js?v=$SHORT_SHA\"|g" "$f"
+          done
+          echo "Cache-busting done for all HTML files"
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4

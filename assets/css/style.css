@@ -179,7 +179,7 @@
 .fcard-cat-level--featured{background:var(--cta);color:var(--white)}
 /* Badge inline (mobile) next to level tag */
 .fcard-cat-level-row{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
-.fcard-cat-badge-inline{display:none;background:var(--cta);color:var(--white);font-weight:800;font-size:0.75rem;padding:0.25rem 0.75rem;border-radius:50px}
+.fcard-cat-badge-inline{display:none;background:transparent;color:var(--cta);font-weight:800;font-size:0.75rem;padding:0.25rem 0.75rem;border-radius:50px;border:2px solid var(--cta)}
 @media(max-width:768px){.fcard-cat-badge-top{display:none}.fcard-cat-badge-inline{display:inline-flex;align-items:center}}
 /* Chevron icon for toggles */
 .toggle-chevron{width:14px;height:14px;vertical-align:middle;margin-left:6px;display:inline-block;transition:transform 0.3s}
