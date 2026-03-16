@@ -623,6 +623,13 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:3
 /* Carte Leaflet – z-index inférieur au header fixe (z-index:1000) */
 #map{position:relative;z-index:0}
 
+/* ===== TEMOIGNAGES – no overlay on hero video ===== */
+[data-page="temoignages"] .hero-video-bg::after{display:none}
+[data-page="temoignages"] .hero-inner.hero-video-bg{background:transparent}
+
 /* ===== FAQ SECTION ===== */
 .faq-section{background:var(--off-white);padding:4rem 0}
-@media(max-width:768px){.faq-section{padding:2.5rem 0}}
+.faq-section .accordion{gap:0.4rem}
+.faq-section .accordion-btn{padding:0.55rem 1.75rem}
+.faq-section .accordion-inner ul li{display:list-item;list-style:none}.faq-section .accordion-inner ul li span{display:block}
+@media(max-width:768px){.faq-section{padding:2.5rem 0}.faq-section .accordion-btn{padding:0.45rem 1.25rem}}
