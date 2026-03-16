@@ -313,7 +313,13 @@ a.public-card{text-decoration:none;color:inherit;cursor:pointer;display:flex;}
 /* 7. Sections formation : padding réduit sur petits écrans */
 @media(max-width:600px){.section-detail{padding:1.5rem}}
 
-/* 8. Public grid : 5 cartes, disposition adaptée */
+/* 8. FAQ section */
+.faq-section{background:var(--off-white);padding:4rem 0}
+.faq-section .accordion-btn{font-size:clamp(0.78rem,1.8vw,0.95rem);padding:1.1rem 1.25rem;min-width:0}
+.faq-section .accordion-btn span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+@media(max-width:768px){.faq-section{padding:2.5rem 0}.faq-section .accordion-btn{padding:0.9rem 1rem}}
+
+/* 9. Public grid : 5 cartes, disposition adaptée */
 .public-grid{grid-template-columns:1fr 1fr 1.35fr 1fr 1fr;gap:1.25rem}
 @media(max-width:1024px){.public-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.public-grid{grid-template-columns:1fr}}
