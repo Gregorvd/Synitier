@@ -629,7 +629,11 @@ iframe[title*="PDF"],iframe[title*="Étude"],iframe[title*="Programme"]{height:3
 
 /* ===== FAQ SECTION ===== */
 .faq-section{background:var(--off-white);padding:4rem 0}
-.faq-section .accordion{gap:0.4rem}
-.faq-section .accordion-btn{padding:0.55rem 1.75rem}
+.faq-section .accordion{gap:0.35rem}
+.faq-section .accordion-item{border-width:1.5px}
+.faq-section .accordion-btn{padding:0.5rem 1.5rem;font-size:0.95rem}
+.faq-section .accordion-inner{padding:1.25rem 1.5rem}
+.faq-section .accordion-inner a{color:var(--primary);font-weight:700;text-decoration:underline;text-underline-offset:3px;transition:color var(--transition)}
+.faq-section .accordion-inner a:hover{color:var(--cta)}
 .faq-section .accordion-inner ul li{display:list-item;list-style:none}.faq-section .accordion-inner ul li span{display:block}
-@media(max-width:768px){.faq-section{padding:2.5rem 0}.faq-section .accordion-btn{padding:0.45rem 1.25rem}}
+@media(max-width:768px){.faq-section{padding:2.5rem 0}.faq-section .accordion-btn{padding:0.4rem 1rem;font-size:0.9rem}.faq-section .accordion-inner{padding:1rem}}
