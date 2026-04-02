@@ -319,17 +319,54 @@ function initContactForm() {
    return;
   }
 
-  // Success
+  // Success — submit to HubSpot
   var submitBtn = form.querySelector('[type="submit"]');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Envoi en cours\u2026';
-  setTimeout(function() {
+
+  var villeField = form.querySelector('#ville-auto');
+  var hsFields = [
+   { objectTypeId: '0-1', name: 'firstname', value: form.querySelector('#prenom').value.trim() },
+   { objectTypeId: '0-1', name: 'lastname', value: form.querySelector('#nom').value.trim() },
+   { objectTypeId: '0-1', name: 'phone', value: form.querySelector('#telephone').value.trim() },
+   { objectTypeId: '0-1', name: 'email', value: form.querySelector('#email').value.trim() },
+   { objectTypeId: '0-1', name: 'situation', value: form.querySelector('#situation').value },
+   { objectTypeId: '0-1', name: 'zip', value: form.querySelector('#code-postal').value.trim() },
+   { objectTypeId: '0-1', name: 'city', value: villeField ? villeField.value : '' },
+   { objectTypeId: '0-1', name: 'message', value: (form.querySelector('#message').value || '').trim() }
+  ];
+
+  var hsPayload = {
+   fields: hsFields,
+   context: {
+    pageUri: window.location.href,
+    pageName: document.title
+   },
+   legalConsentOptions: {
+    consent: {
+     consentToProcess: true,
+     text: "J'accepte que mes données soient utilisées pour traiter ma demande."
+    }
+   }
+  };
+
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/146772367/45457148-44e4-4c55-9ba7-f24927924f5f', {
+   method: 'POST',
+   headers: { 'Content-Type': 'application/json' },
+   body: JSON.stringify(hsPayload)
+  }).then(function() {
    form.style.display = 'none';
    if (success) {
     success.classList.add('visible');
     success.scrollIntoView({ behavior: 'smooth', block: 'center' });
    }
-  }, 900);
+  }).catch(function() {
+   form.style.display = 'none';
+   if (success) {
+    success.classList.add('visible');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   }
+  });
  });
 
  // Clear errors on input

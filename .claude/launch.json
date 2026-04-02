@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "synitier-local",
-      "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["/tmp/synitier-serve.py", "8090"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "8090", "/Users/gregvandijk/Documents/GitHub/Synitier"],
       "port": 8090
     }
   ]
