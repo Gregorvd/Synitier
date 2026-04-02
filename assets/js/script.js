@@ -330,10 +330,10 @@ function initContactForm() {
    { objectTypeId: '0-1', name: 'lastname', value: form.querySelector('#nom').value.trim() },
    { objectTypeId: '0-1', name: 'phone', value: form.querySelector('#telephone').value.trim() },
    { objectTypeId: '0-1', name: 'email', value: form.querySelector('#email').value.trim() },
-   { objectTypeId: '0-1', name: 'situation', value: form.querySelector('#situation').value },
+   { objectTypeId: '0-1', name: 'situation_professionnelle', value: form.querySelector('#situation').selectedOptions[0].textContent },
    { objectTypeId: '0-1', name: 'zip', value: form.querySelector('#code-postal').value.trim() },
    { objectTypeId: '0-1', name: 'city', value: villeField ? villeField.value : '' },
-   { objectTypeId: '0-1', name: 'message', value: (form.querySelector('#message').value || '').trim() }
+   { objectTypeId: '0-1', name: 'commentaire_situation_projet', value: (form.querySelector('#message').value || '').trim() }
   ];
 
   var hsPayload = {
