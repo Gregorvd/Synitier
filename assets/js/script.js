@@ -65,7 +65,7 @@ function buildFooter() {
  <div class="footer-col">
  <h4>Certification</h4>
  <a href="certificat-qualiopi.html" class="qualiopi-logo" aria-label="Voir le certificat Qualiopi">
- <img src="assets/images/icones/logo-qualiopi.png" alt="Logo Qualiopi" width="130" height="52">
+ <img src="assets/images/icones/logo-qualiopi.webp" alt="Logo Qualiopi" width="130" height="79">
  </a>
  </div>
  </div>
@@ -800,16 +800,4 @@ document.addEventListener('DOMContentLoaded', () => {
  } else {
  fixFrenchPunctuation();
  }
- // Twemoji : rendu identique des emojis sur tous les OS
- (function loadTwemoji() {
-  var s = document.createElement('script');
-  s.src = 'https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js';
-  s.crossOrigin = 'anonymous';
-  s.onload = function () {
-   if (typeof twemoji !== 'undefined') {
-    twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-   }
-  };
-  document.head.appendChild(s);
- })();
 });
