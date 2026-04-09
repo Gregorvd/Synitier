@@ -800,4 +800,16 @@ document.addEventListener('DOMContentLoaded', () => {
  } else {
  fixFrenchPunctuation();
  }
+ // Twemoji : rendu identique des emojis sur tous les OS
+ (function loadTwemoji() {
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js';
+  s.crossOrigin = 'anonymous';
+  s.onload = function () {
+   if (typeof twemoji !== 'undefined') {
+    twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+   }
+  };
+  document.head.appendChild(s);
+ })();
 });
