@@ -63,7 +63,7 @@ function buildFooter() {
  <div class="footer-col">
  <h4>Certification</h4>
  <a href="certificat-qualiopi.html" class="qualiopi-logo" aria-label="Voir le certificat Qualiopi">
- <img src="assets/images/icones/logo-qualiopi.webp" alt="Logo Qualiopi" width="180" height="109">
+ <img src="assets/images/icones/logo-qualiopi.webp" alt="Logo Qualiopi" width="260" height="157">
  </a>
  </div>
  </div>
