@@ -559,6 +559,54 @@ function initFormationFilters() {
  });
  applyFilter('all');
 }
+function initFormationCardClick() {
+ // Desktop only : toute la carte devient cliquable (pointeur fin, écran large)
+ const mql = window.matchMedia('(min-width: 1024px) and (pointer: fine)');
+ const cards = document.querySelectorAll('.fcard-cat');
+ if (!cards.length) return;
+ cards.forEach(card => {
+  const link = card.querySelector('a.btn[href]');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  const target = link.getAttribute('target');
+  function apply(on) {
+   if (on) {
+    card.classList.add('fcard-cat--clickable');
+    if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'link');
+    card.setAttribute('data-href', href);
+   } else {
+    card.classList.remove('fcard-cat--clickable');
+    card.removeAttribute('tabindex');
+    card.removeAttribute('role');
+    card.removeAttribute('data-href');
+   }
+  }
+  apply(mql.matches);
+  mql.addEventListener('change', e => apply(e.matches));
+  card.addEventListener('click', e => {
+   if (!card.classList.contains('fcard-cat--clickable')) return;
+   // Ignore si l'utilisateur clique sur un lien/bouton réel (laisse le comportement natif)
+   if (e.target.closest('a, button')) return;
+   // Ignore si sélection de texte
+   const sel = window.getSelection && window.getSelection().toString();
+   if (sel && sel.length) return;
+   if (target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) {
+    window.open(href, '_blank', 'noopener');
+   } else {
+    window.location.href = href;
+   }
+  });
+  card.addEventListener('keydown', e => {
+   if (!card.classList.contains('fcard-cat--clickable')) return;
+   if (e.target !== card) return;
+   if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    window.location.href = href;
+   }
+  });
+ });
+}
 function initTogglePanel(btnId, panelId) {
  const btn = document.getElementById(btnId);
  if (!btn) return;
@@ -744,6 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
  if (document.getElementById('map'))           initMap();
  if (document.querySelector('.formation-tab-btn')) initFormationTabs();
  if (document.querySelector('.filtre-btn[data-filter]')) initFormationFilters();
+ if (document.querySelector('.fcard-cat')) initFormationCardClick();
  initTogglePanel('etude-toggle-btn', 'etude-pdf-panel');
  initTogglePanel('programme-toggle-btn', 'programme-pdf-panel');
  if (document.fonts && document.fonts.ready) {
