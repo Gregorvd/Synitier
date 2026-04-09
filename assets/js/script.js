@@ -58,14 +58,12 @@ function buildFooter() {
  </div>
  <div class="footer-col">
  <h4>Coordonnées</h4>
- <p>281 Rue de Vaugirard<br>75015 Paris</p>
- <p><a href="tel:+33611818818">06 11 81 88 18</a></p>
- <p><a href="mailto:contact@synitier.fr">contact@synitier.fr</a></p>
+ <p style="margin:0;line-height:1.6">281 Rue de Vaugirard<br>75015 Paris<br><a href="tel:+33611818818">06 11 81 88 18</a><br><a href="mailto:contact@synitier.fr">contact@synitier.fr</a></p>
  </div>
  <div class="footer-col">
  <h4>Certification</h4>
  <a href="certificat-qualiopi.html" class="qualiopi-logo" aria-label="Voir le certificat Qualiopi">
- <img src="assets/images/icones/logo-qualiopi.webp" alt="Logo Qualiopi" width="130" height="79">
+ <img src="assets/images/icones/logo-qualiopi.webp" alt="Logo Qualiopi" width="180" height="109">
  </a>
  </div>
  </div>
