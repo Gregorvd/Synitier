@@ -24,7 +24,7 @@ function buildNav(activePage) {
  <nav role="navigation" aria-label="Navigation principale">
  <div class="nav-inner">
  <a href="index.html" class="nav-logo" aria-label="Synitier - Accueil">
- <img src="assets/images/logo/logo-synitier-bleu.png" alt="Synitier" class="nav-logo-img">
+ <img src="assets/images/logo/logo-synitier-bleu.webp" alt="Synitier" class="nav-logo-img" width="400" height="142">
  </a>
  <ul class="nav-links" id="nav-links">
  ${linksHTML}
@@ -52,7 +52,7 @@ function buildFooter() {
  <div class="footer-grid">
  <div class="footer-brand">
  <a href="index.html" aria-label="Synitier - Accueil">
- <img src="assets/images/logo/logo-synitier-blanc.png" alt="Synitier" class="footer-logo-img" height="52">
+ <img src="assets/images/logo/logo-synitier-blanc.webp" alt="Synitier" class="footer-logo-img" width="146" height="52">
  </a>
  <p class="footer-tagline">Organisme de formation Qualiopi spécialisé<br>en mobilité légère et urbaine.</p>
  </div>

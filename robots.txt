@@ -1,0 +1,12 @@
+# robots.txt — Synitier
+# https://www.synitier.fr
+
+User-agent: *
+Allow: /
+
+# Inutile d'indexer les assets bruts
+Disallow: /assets/documents/
+Disallow: /assets/video/
+
+# Sitemap
+Sitemap: https://www.synitier.fr/sitemap.xml
