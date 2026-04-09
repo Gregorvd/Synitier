@@ -11,7 +11,6 @@ const CENTRES = [
  { name: 'Synitier Lyon Lafayette',     addr: '6 Cours Lafayette, 69003 Lyon',               lat: 45.7603, lng: 4.8376 },
  { name: 'Synitier Lille',              addr: '13 Pl. Pierre Mendès France, 59800 Lille',    lat: 50.6270, lng: 3.0574 },
  { name: 'Synitier Marseille',          addr: '31 Rue de la République, 13002 Marseille',    lat: 43.2978, lng: 5.3706 },
- { name: 'Synitier Montpellier Est',    addr: '125 Rue Alfred Sauvy, 34470 Pérols',          lat: 43.5617, lng: 3.9068 },
 ];
 function buildNav(activePage) {
  const header = document.getElementById('site-header');
@@ -54,17 +53,17 @@ function buildFooter() {
  <a href="index.html" aria-label="Synitier - Accueil">
  <img src="assets/images/logo/logo-synitier-blanc.webp" alt="Synitier" class="footer-logo-img" width="146" height="52">
  </a>
- <p class="footer-tagline">Organisme de formation Qualiopi spécialisé<br>en mobilité légère et urbaine.</p>
- </div>
- <div class="footer-col">
- <h4>Coordonnées</h4>
- <p style="margin:0;line-height:1.6">281 Rue de Vaugirard<br>75015 Paris<br><a href="tel:+33611818818">06 11 81 88 18</a><br><a href="mailto:contact@synitier.fr">contact@synitier.fr</a></p>
+ <p class="footer-tagline">Organisme de formation spécialisé<br>en mobilité légère et urbaine.</p>
  </div>
  <div class="footer-col footer-col--certification">
  <h4>Certification</h4>
  <a href="certificat-qualiopi.html" class="qualiopi-logo" aria-label="Voir le certificat Qualiopi">
  <img src="assets/images/icones/logo-qualiopi.webp" alt="Logo Qualiopi" width="260" height="157">
  </a>
+ </div>
+ <div class="footer-col" style="text-align:center">
+ <h4>Coordonnées</h4>
+ <p style="margin:0;line-height:1.6">281 Rue de Vaugirard<br>75015 Paris<br><a href="tel:+33186042067">01 86 04 20 67</a><br><a href="mailto:contact@synitier.fr">contact@synitier.fr</a></p>
  </div>
  </div>
  </div>
