@@ -77,6 +77,7 @@ function buildFooter() {
  <a href="cgu.html">CGU</a>
  <a href="cgv.html">CGV</a>
  </div>
+ <p class="footer-credit">Site conçu par Grégor VAN DIJK</p>
  </div>
  </div>
  </div>
