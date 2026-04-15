@@ -4,7 +4,7 @@
     {
       "name": "synitier-local",
       "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "/Users/gregvandijk/Documents/GitHub/Synitier"],
+      "runtimeArgs": ["/tmp/synitier-serve.py", "8090"],
       "port": 8090
     }
   ]
