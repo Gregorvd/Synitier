@@ -326,11 +326,17 @@ function initContactForm() {
     success.scrollIntoView({ behavior: 'smooth', block: 'center' });
    }
   }).catch(function() {
-   form.style.display = 'none';
-   if (success) {
-    success.classList.add('visible');
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   submitBtn.disabled = false;
+   submitBtn.textContent = 'Envoyer mon message';
+   var errMsg = form.querySelector('.form-submit-error');
+   if (!errMsg) {
+    errMsg = document.createElement('p');
+    errMsg.className = 'form-submit-error';
+    errMsg.setAttribute('role', 'alert');
+    errMsg.style.cssText = 'color:#ef4444;font-weight:600;font-size:0.9rem;margin-top:0.75rem;text-align:center;';
+    form.querySelector('.form-submit').appendChild(errMsg);
    }
+   errMsg.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.';
   });
  });
 

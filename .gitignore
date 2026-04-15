@@ -3,3 +3,19 @@
 Thumbs.db
 .claude/
 *.docx
+
+# Secrets & config
+.env
+.env.*
+*.pem
+*.key
+
+# Backups & temp
+*.bak
+*.tmp
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/

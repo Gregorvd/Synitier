@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://player.vimeo.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self'; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; frame-src https://player.vimeo.com 'self'; connect-src 'self' https://geo.api.gouv.fr https://vimeo.com https://*.vimeo.com https://*.vimeocdn.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Formation Titre Pro RNCP 35992 (160 h) : réparation cycles et VAE. Finançable via CPF. Préparez le TP technicien-vendeur en matériel de sport. Organisme Qualiopi.">
@@ -622,6 +623,7 @@
               <div id="programme-pdf-panel" class="pdf-panel">
                 <iframe
                   data-src="assets/documents/programme-rncp35992-synitier.pdf"
+                  sandbox="allow-same-origin"
                   width="100%"
                   height="560"
                   class="pdf-iframe"
