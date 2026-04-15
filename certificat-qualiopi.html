@@ -3,9 +3,6 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://player.vimeo.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self'; img-src 'self' data: https://*.tile.openstreetmap.org https://unpkg.com; frame-src https://player.vimeo.com 'self'; connect-src 'self' https://geo.api.gouv.fr https://vimeo.com https://*.vimeo.com https://*.vimeocdn.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -25,11 +22,14 @@
   <meta property="og:url" content="https://www.synitier.fr/certificat-qualiopi.html">
   <meta property="og:image" content="https://www.synitier.fr/assets/images/og-default.jpg">
   <meta property="og:image:alt" content="Logo Qualiopi">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Synitier | Certificat Qualiopi">
   <meta name="twitter:description" content="Synitier, organisme de formation certifié Qualiopi.">
   <meta name="twitter:image" content="https://www.synitier.fr/assets/images/og-default.jpg">
+  <meta name="twitter:image:alt" content="Logo Qualiopi Synitier">
   <link rel="preload" href="assets/fonts/GothamRounded-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/GothamRounded-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Montserrat-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
@@ -38,6 +38,28 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <!-- Données structurées Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Certificat Qualiopi — Synitier",
+    "url": "https://www.synitier.fr/certificat-qualiopi.html",
+    "inLanguage": "fr-FR",
+    "isPartOf": {"@id": "https://www.synitier.fr/#website"},
+    "about": {"@id": "https://www.synitier.fr/#organization"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.synitier.fr/"},
+      {"@type": "ListItem", "position": 2, "name": "Certificat Qualiopi", "item": "https://www.synitier.fr/certificat-qualiopi.html"}
+    ]
+  }
+  </script>
 </head>
 <body data-page="qualiopi">
 

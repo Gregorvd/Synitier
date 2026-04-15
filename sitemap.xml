@@ -20,11 +20,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://www.synitier.fr/formation-vae-trottinettes.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <!-- formation-vae-trottinettes masquée (RS 6802) -->
   <url>
     <loc>https://www.synitier.fr/a-propos.html</loc>
     <changefreq>monthly</changefreq>

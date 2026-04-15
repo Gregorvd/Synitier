@@ -164,39 +164,6 @@ function initAccordion() {
  btn.setAttribute('aria-expanded', 'false');
  });
 }
-function initFormationTabs() {
- const tabs = document.querySelectorAll('.formation-tab-btn');
- if (!tabs.length) return;
- function activateTab(key) {
- tabs.forEach(t => {
- const active = t.dataset.tab === key;
- t.classList.toggle('active', active);
- t.setAttribute('aria-selected', active);
- });
- document.querySelectorAll('.accordion-item[data-formations]').forEach(item => {
- const formations = item.dataset.formations.split(',');
- const visible = key === 'complete' || formations.includes(key);
- item.style.display = visible ? '' : 'none';
- });
- const objBlock = document.getElementById('objectifs-block');
- if (objBlock) {
- objBlock.style.display = key === 'complete' ? '' : 'none';
- }
- const bcSubtitle = document.getElementById('bc-subtitle');
- if (bcSubtitle) {
- const labels = {
- mecanique:  'Blocs de compétences : Mécanique vélos',
- electrique: 'Blocs de compétences : Vélo à assistance électrique et trottinettes électriques',
- complete:   'Blocs de compétences : Formation complète mécanique et électrique',
- };
- bcSubtitle.textContent = labels[key] || '';
- }
- }
- tabs.forEach(tab => {
- tab.addEventListener('click', () => activateTab(tab.dataset.tab));
- });
- activateTab(tabs[0].dataset.tab);
-}
 function initScrollAnimations() {
  const targets = document.querySelectorAll('.fade-up');
  if (!targets.length) return;
@@ -788,7 +755,6 @@ document.addEventListener('DOMContentLoaded', () => {
  buildBackToTop();
  if (document.getElementById('contact-form'))  { initContactForm(); initPostalCodeLookup(); }
  if (document.getElementById('map'))           initMap();
- if (document.querySelector('.formation-tab-btn')) initFormationTabs();
  if (document.querySelector('.filtre-btn[data-filter]')) initFormationFilters();
  if (document.querySelector('.fcard-cat')) initFormationCardClick();
  initTogglePanel('etude-toggle-btn', 'etude-pdf-panel');
